@@ -1,0 +1,83 @@
+header {
+    background-image: url("https://i.postimg.cc/s2633DVn/car-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 77.6vh;
+}
+
+
+.content {
+    font-size: 2rem;
+    margin: auto;
+    max-width: 100%;
+    animation-name: slide-in-left;
+    animation-duration: 3s;
+    margin-top: 150px;
+}
+
+.content h1 {
+    color: #00c2ff;
+    margin-bottom: 0;
+}
+
+.container {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1000px;
+    animation-name: slide-in-down;
+    animation-duration: 3s;
+}
+
+.book-btn {
+    background-color: #00c2ff;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footer{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        margin: 2rem auto 0;
+        font-size: 1.4rem;
+    }
+
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slide-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

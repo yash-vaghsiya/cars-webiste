@@ -8,11 +8,11 @@ import { AboutUs } from './about-us/about-us';
 import { ContactUs } from './contact-us/contact-us';
 
 export const routes: Routes = [
-    {path: 'login', component:Login},
-    {path: 'Home', component:Home},
-    {path: 'Collection', component:Collection},
-    {path: 'Sell-Car', component:SellCar},
-    {path: 'About-Us', component:AboutUs},
-    {path: 'Contact-Us', component:ContactUs},
-
+    { path: '', component: Home },
+    { path: 'Home', component: Home },
+    { path: 'Login', component: Login },
+    { path: 'Collection', component: Collection },
+    { path: 'Sell-Car', component: SellCar },
+    { path: 'About-Us', component: AboutUs },
+    { path: 'Contact-Us', component: ContactUs },
 ];

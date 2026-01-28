@@ -1,0 +1,446 @@
+/* body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+} */
+
+.main-container {
+    display: flex;
+    height: 104vh;
+    width: 100vw;
+}
+
+
+.car{
+width: 35px;
+height: 35px;
+}
+/* --- 2. Left Section: Authentication Forms --- */
+.form-section {
+    /* flex: 1; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #000;
+    min-width: 450px;
+    z-index: 10;
+}
+
+/* Close Button (X) - Top Left */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Brand Branding (Logo + Title) */
+.brand-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-box {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0082ff, #00d4ff);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 25px rgba(0, 130, 255, 0.5);
+}
+
+.logo-box .material-icons {
+    font-size: 50px;
+    color: white;
+}
+
+.brand-info h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.brand-subtitle {
+    color: #666;
+    font-size: 13px;
+}
+
+/* --- 3. Auth Card Styles --- */
+.auth-card {
+    background: #0a0a0a;
+    padding: 30px 30px 30px 30px;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    width: 150%;
+    margin-right: 150px;
+    max-width: 400px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-card h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+}
+
+.subtitle {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Input Field Fix (Icons no longer overlap text) */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.input-field {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 48px;
+    transition: 0.3s;
+}
+
+.input-field:focus-within {
+    border-color: #0082ff;
+    background: #151515;
+}
+
+.input-field .material-icons {
+    color: #444;
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.input-field input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-field .eye {
+    cursor: pointer;
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* Form Options & Links */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 12px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #777;
+    cursor: pointer;
+}
+
+.checkbox input {
+    accent-color: #0082ff;
+    width: 16px;
+    height: 16px;
+}
+
+.link {
+    color: #0082ff;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Main Button */
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(90deg, #0082ff, #00d4ff);
+    color: white;
+    border: none;
+    height: 50px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 130, 255, 0.3);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Divider & Social Buttons */
+.divider {
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+    line-height: 0.1em;
+    margin: 30px 0;
+}
+
+.divider span {
+    background: #0a0a0a;
+    padding: 0 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.social-login {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    flex: 1;
+    background: #111;
+    border: 1px solid #222;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.social-btn:hover {
+    background: #1a1a1a;
+    border-color: #444;
+}
+
+.social-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+.social-btn .material-icons {
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #555;
+}
+
+.footer-text a {
+    color: #0082ff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- 4. Right Section: Hero Imagery --- */
+.image-section {
+    flex: 1.2;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=2070') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.image-content {
+    position: relative;
+    z-index: 2;
+}
+
+.premium-badge {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+}
+
+.premium-badge .material-icons {
+    color: #00d4ff;
+    font-size: 18px;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #0082ff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+    color: #aaa;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 480px;
+}
+
+/* Glass Feature Cards (MATCHING SCREENSHOT) */
+.feature-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 340px;
+}
+
+.feat-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(0, 130, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feat-icon .material-icons {
+    color: #0082ff;
+    font-size: 22px;
+}
+
+.feat-text strong {
+    display: block;
+    font-size: 15px;
+    color: #fff;
+}
+
+.feat-text p {
+    font-size: 12px;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* Pagination & Navigation */
+.pagination {
+    display: flex;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 35px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.dot.active {
+    background: white;
+    width: 45px;
+}
+
+.next-link {
+    position: absolute;
+    bottom: 60px;
+    right: 80px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .image-section {
+        display: none;
+    }
+
+    .form-section {
+        width: 100%;
+        min-width: 0;
+    }
+}

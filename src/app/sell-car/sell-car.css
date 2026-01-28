@@ -1,0 +1,301 @@
+/* =====================================
+   ULTRA PREMIUM SELL CAR PAGE
+   Luxury • Cinematic • Filled Experience
+===================================== */
+
+.sell-car-page {
+  min-height: 100vh;
+  padding: 100px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+
+  background:
+    /* radial-gradient(circle at top, rgba(212,175,55,0.2), transparent 55%), */
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+    url("https://images.unsplash.com/photo-1619767886558-efdc259cde1a");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ---------- PAGE TITLE ---------- */
+
+.sell-car-page h1 {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  margin-bottom: 12px;
+  text-shadow: 0 12px 45px rgba(0,0,0,0.9);
+}
+
+.sell-car-page h1 span {
+  color: #00d4ff;
+  text-shadow: 0 0 30px rgb(0 130 255);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: #dcdcdc;
+  opacity: 0.9;
+  margin-bottom: 65px;
+}
+
+/* ---------- FORM CARD ---------- */
+
+.form-card {
+  max-width: 980px;
+  margin: auto;
+  position: relative;
+  background: linear-gradient( 180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 22px;
+  overflow : hidden;
+}
+
+/* Gold accent line */
+.form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+/* ---------- HEADER ---------- */
+
+.card-header {
+  padding: 26px 36px;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(212,175,55,0.35);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  /* color: #d4af37; */
+}
+
+/* ---------- FORM BODY ---------- */
+
+form {
+  padding: 46px 38px 54px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---------- LABEL ---------- */
+
+label {
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  color: #f5f5f5;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* ---------- INPUT & SELECT ---------- */
+
+input,
+select {
+  height: 52px;
+  padding: 0 18px;
+  font-size: 14px;
+  color: #ffffff;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.9)
+  );
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.28);
+  outline: none;
+
+  transition: all 0.4s ease;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.65);
+}
+
+/* ---------- FOCUS ---------- */
+
+input:focus,
+select:focus {
+  background: rgba(0,0,0,0.95);
+}
+
+/* ---------- GOLD UNDERLINE ---------- */
+
+.form-group::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, transparent);
+  transition: width 0.5s ease;
+}
+
+.form-group:focus-within::after {
+  width: 100%;
+}
+
+/* ---------- ERROR ---------- */
+
+.error {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #ff7a7a;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+
+.submit-btn {
+  width: 100%;
+  height: 58px;
+  margin-top: 52px;
+
+  border: none;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(135deg, #00d4ff, #00d4ff, #00d4ff);
+
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  cursor: pointer;
+
+  /* box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.55); */
+
+  transition: all 0.45s ease;
+}
+
+/* Hover */
+.submit-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    /* 0 45px 100px rgb(0 130 255), */
+    0 0 45px rgb(0 130 255);
+}
+
+/* Active */
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sell-car-page h1 {
+    font-size: 34px;
+  }
+
+  form {
+    padding: 36px 26px 44px;
+  }
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+  margin-top: 130px;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 44px;
+  margin-bottom: 70px;
+}
+
+.how-it-works h2 span {
+  color: #d4af37;
+  text-shadow: 0 0 30px rgba(212,175,55,0.65);
+
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 55px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.step-card {
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+  transition: 0.4s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-12px);
+}
+
+.icon-box {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box i {
+  font-size: 34px;
+  color: #000;
+}
+
+.step-card h4 {
+  color: #d4af37;
+  margin-bottom: 14px;
+}
+
+.step-card p {
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .form-grid,
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sell-car-page h1 {
+    font-size: 34px;
+  }
+}

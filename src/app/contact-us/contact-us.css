@@ -1,0 +1,239 @@
+/* PAGE */
+.contact-wrapper {
+    background:
+        linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)),
+        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+    color: var(--text);
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    margin-top: 10px;
+    color: var(--text-muted);
+}
+
+.luxury-line {
+    width: 70px;
+    height: 3px;
+    background: var(--gold);
+    margin: 18px auto;
+    border-radius: 5px;
+}
+
+/* LAYOUT */
+.contact-container {
+    display: flex;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    transition: all 0.3s ease;
+}
+
+/* INFO CARD */
+.contact-info {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 35px;
+    height: 89%;
+    margin-right: 50px;
+    transition: all 0.5s ease;
+}
+
+.contact-form {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 35px;
+    margin-left: 50px;
+    transition: all 0.5s ease;
+}
+
+/* HOVER SHADOW EFFECT */
+.contact-info:hover {
+
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.6),
+        0 30px 80px rgba(212, 175, 55, 0.4);
+    transform: translateY(-5px);
+}
+
+.contact-form:hover {
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.6),
+        0 30px 80px rgba(212, 175, 55, 0.4);
+    transform: translateY(-5px);
+}
+
+/* GOLD SHIMMER HOVER */
+.contact-info::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(212, 175, 55, 0.12),
+            transparent);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.contact-form::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(212, 175, 55, 0.12),
+            transparent);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.contact-info:hover::before {
+    opacity: 1;
+}
+
+.contact-form:hover::before {
+    opacity: 1;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    border-radius: 999px 999px 999px 0 ; 
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+/* TEXT */
+.contact-info h2 {
+    font-size: 1.7rem;
+}
+
+.contact-form h2 {
+    font-size: 1.7rem;
+}
+
+.contact-info p {
+    margin: 15px 0 25px;
+    color: var(--text-muted);
+}
+
+.info-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: white;
+}
+
+/* MAP */
+.map-box {
+    margin-top: 25px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 260px;
+    border: none;
+    /* filter: grayscale(100%) invert(90%); */
+}
+
+/* FORM */
+.input-group {
+    display: flex;
+    gap: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: white;
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: white;
+    outline: none;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    border: none;
+    border-radius: 30px;
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.45);
+}
+
+.footer-note {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+}

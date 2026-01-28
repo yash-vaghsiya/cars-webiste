@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class ContactUs {
 
+  submitForm() {
+    alert('Thank you! Our luxury concierge will contact you shortly.');
+  }
 }
+
+
+
+
+
+

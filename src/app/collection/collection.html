@@ -1,1 +1,57 @@
-<p>collection works!</p>
+
+
+<div class="main">
+    
+    <div class="filters">
+  <button
+    (click)="filterCars('all')"
+    [class.active]="activeCategory === 'all'">
+    ALL
+  </button>
+
+  <button
+    (click)="filterCars('sports')"
+    [class.active]="activeCategory === 'sports'">
+    SPORTS
+  </button>
+
+  <button
+    (click)="filterCars('luxury')"
+    [class.active]="activeCategory === 'luxury'">
+    LUXURY
+  </button>
+
+  <button
+    (click)="filterCars('electric')"
+    [class.active]="activeCategory === 'electric'">
+    ELECTRIC
+  </button>
+
+  <button
+    (click)="filterCars('suv')"
+    [class.active]="activeCategory === 'suv'">
+    SUV
+  </button>
+</div>
+
+<div id="carCollection" class="collection">
+  <div class="car-card" *ngFor="let car of filteredCars">
+    <img [src]="car.image" [alt]="car.name">
+
+    <h3>{{ car.name }}</h3>
+    <p class="category">{{ car.category | uppercase }}</p>
+
+    <div class="specs">
+      <span>⚡ {{ car.power }}</span>
+      <span>🏁 {{ car.speed }}</span>
+    </div>
+
+    <div class="price">{{ car.price }}</div>
+
+    <div class="actions">
+      <button class="btn-view">View</button>
+      <button class="btn-book">Book</button>
+    </div>
+  </div>
+</div>
+</div>

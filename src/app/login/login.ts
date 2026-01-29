@@ -88,7 +88,7 @@ if (!this.password.includes('admin123')) {
       this.errorMessage = 'Please fill all fields';
       return;
     }
-
+    
     if (!this.signupEmail.includes('@')) {
       this.errorMessage = 'Please enter a valid email';
       return;

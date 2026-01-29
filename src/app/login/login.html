@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <div class="main-container">
   <div class="form-section">
@@ -18,16 +18,16 @@
         <div class="input-group">
           <label>Email Address</label>
           <div class="input-field">
-            <!-- <span class="material-icons"></span> -->
+            <!-- <span class="material-icons"></span> --
             <input type="email" placeholder="you@example.com">
           </div>
         </div>
         <div class="input-group">
           <label>Password</label>
           <div class="input-field">
-            <!-- <span class="material-icons">lock_outline</span> -->
+            <!-- <span class="material-icons">lock_outline</span> --
             <input type="password" placeholder="Enter your password">
-            <!-- <span class="material-icons eye">visibility_off</span> -->
+            <!-- <span class="material-icons eye">visibility_off</span> --
           </div>
         </div>
         <div class="form-options">
@@ -70,6 +70,131 @@
           <div class="input-field"><span class="material-icons"></span><input type="email" placeholder="you@example.com"></div>
         </div>
         <button class="btn-primary">Send Reset Link <span class="arrow">&rarr;</span></button>
+        <p class="footer-text"><a (click)="switchView('login')">&larr; Back to login</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="image-section">
+    <div class="overlay"></div>
+    <div class="image-content">
+      <h1 class="hero-title"><span class="gradient-text">Drive Your</span> <br><span class="gradient-text">Dream Car</span></h1>
+      <p class="hero-desc">Access exclusive collection of premium vehicles. Experience luxury, performance, and innovation.</p>
+      <div class="feature-card">
+        <div class="feat-icon"><span class="material-icons">⏲</span></div>
+        <div class="feat-text">
+          <strong>Performance</strong>
+          <p>High-performance vehicles</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feat-icon"><span class="material-icons">🛡</span></div>
+        <div class="feat-text">
+          <strong>Security</strong>
+          <p>Advanced safety features</p>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</div> 
+
+ -->
+
+
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<div class="main-container">
+  <div class="form-section">
+    <div class="brand-info">
+      <div class="logo-box">
+        <span class="material-icons"><img src="icon-login/car.png" class="car" alt=""></span>
+      </div>
+      <h1>Automotive Cars</h1>
+      <p class="brand-subtitle">Premium Automotive Experience</p>
+    </div>
+
+    <div [ngSwitch]="currentView" class="auth-card-wrapper">
+      
+      <!-- LOGIN VIEW -->
+      <div *ngSwitchCase="'login'" class="auth-card">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Sign in to access your account</p>
+        
+        <div *ngIf="errorMessage" class="auth-error">{{ errorMessage }}</div>
+        
+        <div class="input-group">
+          <label>Email Address</label>
+          <div class="input-field">
+            <input type="email" placeholder="you@example.com" [(ngModel)]="email" name="email">
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-field">
+            <input type="password" placeholder="Enter your password" [(ngModel)]="password" name="password">
+          </div>
+        </div>
+        <div class="form-options">
+          <label class="checkbox"><input type="checkbox"> Remember me</label>
+          <a (click)="switchView('forgot')" class="link">Forgot password?</a>
+        </div>
+        <button class="btn-primary" (click)="onLogin()">Sign In <span class="arrow">&rarr;</span></button>
+        <div class="divider"><span>OR CONTINUE WITH</span></div>
+        <div class="social-login">
+          <button class="social-btn"><img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google"></button>
+          <button class="social-btn"><span class="material-icons"><img src="icon-login/github.png" alt=""></span></button>
+          <button class="social-btn"><span class="material-icons"><img src="icon-login/apple.png" alt=""></span></button>
+        </div>
+        <p class="footer-text">Don't have an account? <a (click)="switchView('signup')">Create account</a></p>
+      </div>
+
+      <!-- SIGNUP VIEW -->
+      <div *ngSwitchCase="'signup'" class="auth-card">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join the premium car community</p>
+        
+        <div *ngIf="errorMessage" class="auth-error">{{ errorMessage }}</div>
+        
+        <div class="input-group">
+          <label>Full Name</label>
+          <div class="input-field"><input type="text" placeholder="John Doe" [(ngModel)]="fullName" name="fullName"></div>
+        </div>
+        <div class="input-group">
+          <label>Email Address</label>
+          <div class="input-field"><input type="email" placeholder="you@example.com" [(ngModel)]="signupEmail" name="signupEmail"></div>
+        </div>
+        <div class="input-group">
+          <label>Phone Number</label>
+          <div class="input-field"><input type="text" placeholder="+1 (555) 000-0000" [(ngModel)]="phoneNumber" name="phoneNumber"></div>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-field"><input type="password" placeholder="Create a password" [(ngModel)]="signupPassword" name="signupPassword"></div>
+        </div>
+        <button class="btn-primary" (click)="onSignup()">Create Account <span class="arrow">&rarr;</span></button>
+        <p class="footer-text">Already have an account? <a (click)="switchView('login')">Sign in</a></p>
+      </div>
+
+      <!-- FORGOT PASSWORD VIEW -->
+      <div *ngSwitchCase="'forgot'" class="auth-card">
+        <h2>Reset Password</h2>
+        <p class="subtitle">Enter your email to receive a password reset link</p>
+        
+        <div *ngIf="errorMessage" class="auth-error">{{ errorMessage }}</div>
+        
+        <div class="input-group">
+          <label>Email Address</label>
+          <div class="input-field"><input type="email" placeholder="you@example.com" [(ngModel)]="resetEmail" name="resetEmail"></div>
+        </div>
+        <button class="btn-primary" (click)="onPasswordReset()">Send Reset Link <span class="arrow">&rarr;</span></button>
         <p class="footer-text"><a (click)="switchView('login')">&larr; Back to login</a></p>
       </div>
 

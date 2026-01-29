@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Car {
   name: string;
@@ -18,6 +19,14 @@ interface Car {
   styleUrls: ['./collection.css'],
 })
 export class Collection  {
+
+  constructor(private router: Router) {}
+
+  openDetails(car: any) {
+    this.router.navigate(['/car-details'], {
+      state: { car }
+    });
+  }
 
   activeCategory: string = 'all';
 

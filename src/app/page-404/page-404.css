@@ -1,0 +1,19 @@
+h1{
+    display: flex;
+    color: red;
+    justify-content: center;
+margin-top: 20%;
+font-size: 50px;
+}
+
+ p{
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+}
+
+/*a{
+    display: flex;
+    color: rgb(38, 0, 255);
+    justify-content: center;
+} */

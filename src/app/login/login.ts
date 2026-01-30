@@ -75,7 +75,7 @@ if (!this.password.includes('admin123')) {
     }
 
     // Attempt login
-    if (this.authService.login(this.email, this.password='admin123')) {
+    if (this.authService.login(this.email, this.password)) {
       this.errorMessage = '';
       this.router.navigate(['/Home']);
     } else {
@@ -88,7 +88,7 @@ if (!this.password.includes('admin123')) {
       this.errorMessage = 'Please fill all fields';
       return;
     }
-    
+
     if (!this.signupEmail.includes('@')) {
       this.errorMessage = 'Please enter a valid email';
       return;

@@ -1,0 +1,104 @@
+<div class="details-page" *ngIf="car && details">
+
+  <div class="hero">
+    <div class="image-panel">
+      <img [src]="car.image" [alt]="car.name" />
+      <div class="image-glow"></div>
+    </div>
+
+    <div class="info-panel">
+      <div class="tag">{{ car.category | uppercase }}</div>
+      <h1 class="car-title">{{ car.name }}</h1>
+
+      <div class="price-row">
+        <span class="price">{{ car.price }}</span>
+        <span class="year">Model {{ details.year }}</span>
+      </div>
+
+      <div class="quick-specs">
+        <span>⚡ {{ car.power }}</span>
+        <span>🏁 {{ car.speed }}</span>
+        <span>🧭 {{ details.drivetrain }}</span>
+      </div>
+
+      <p class="description">{{ details.description }}</p>
+
+      <div class="cta-row">
+        <button class="btn-primary">Book Now</button>
+        <button class="btn-ghost" (click)="goBack()">Back to Collection</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="specs-panel">
+      <h2>Specifications</h2>
+      <div class="spec-grid">
+        <div class="spec-card">
+          <span class="label">Transmission</span>
+          <span class="value">{{ details.transmission }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Fuel Type</span>
+          <span class="value">{{ details.fuel }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Mileage</span>
+          <span class="value">{{ details.mileage }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Torque</span>
+          <span class="value">{{ details.torque }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Seats</span>
+          <span class="value">{{ details.seats }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Color</span>
+          <span class="value">{{ details.color }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Ground Clearance</span>
+          <span class="value">{{ details.groundClearance }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Boot Space</span>
+          <span class="value">{{ details.bootSpace }}</span>
+        </div>
+        <div class="spec-card">
+          <span class="label">Warranty</span>
+          <span class="value">{{ details.warranty }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-box">
+      <h2>Book This Car</h2>
+      <input type="text" placeholder="Your Name" />
+      <input type="text" placeholder="Mobile Number" />
+      <select>
+        <option>Select State</option>
+        <option>Gujarat</option>
+        <option>Maharashtra</option>
+        <option>Delhi</option>
+      </select>
+      <select>
+        <option>Select City</option>
+        <option>Mumbai</option>
+        <option>Ahmedabad</option>
+        <option>Delhi</option>
+      </select>
+      <textarea placeholder="Your Query"></textarea>
+      <button class="book-btn">Request For Booking</button>
+    </div>
+  </div>
+
+  <div class="features">
+    <h2>Highlights</h2>
+    <div class="feature-list">
+      <span *ngFor="let feature of details.features">{{ feature }}</span>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,76 @@
+<div class="bg">
+
+<div class="booking-container">
+  <div class="grid">
+
+    <!-- LEFT -->
+    <div class="left">
+      <h1>Book Your <span>Car Appointment</span></h1>
+      <p>Schedule a test drive, service, or consultation with our experts.</p>
+
+      <ul class="features">
+        <li>Instant confirmation</li>
+        <li>Dedicated advisor</li>
+        <li>Doorstep service available</li>
+        <li>Luxury experience guaranteed</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="right">
+      <h2>Appointment Details</h2>
+
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+        <div class="form-group">
+          <input type="text" name="name" [(ngModel)]="appointment.name"
+          placeholder="Full Name" required>
+        </div>
+
+        <div class="form-group">
+          <input type="email" name="email" [(ngModel)]="appointment.email"
+          placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
+          <input type="tel" name="phone" [(ngModel)]="appointment.phone"
+          placeholder="Phone" required>
+        </div>
+
+        <div class="form-group">
+          <select name="service" [(ngModel)]="appointment.service" required>
+            <option value="">Select Service</option>
+            <option class="option">Test Drive</option>
+            <option class="option">Car Service</option> 
+            <option class="option">Buy Consultation</option>
+            <option class="option">Sell Car</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="date" name="date" [(ngModel)]="appointment.date" required>
+        </div>
+
+        <div class="form-group">
+          <textarea rows="3" name="message"
+          [(ngModel)]="appointment.message"
+          placeholder="Additional message..."></textarea>
+        </div>
+
+        <button type="submit" [disabled]="f.invalid" (click)="onSubmit">Book Appointment</button>
+
+        <p class="success" *ngIf="f.submitted && f.invalid">
+          ✔ Appointment Booked Successfully!
+        </p>
+
+        <p class="error" *ngIf="f.submitted && f.valid">
+          ✖ Please fill all required fields.
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</div>

@@ -4,17 +4,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Carsdata, Car } from '../service/carsdata';
 import { take } from 'rxjs/operators';
 
-interface CarDetailsView {
-  year: string;
-  transmission: string;
+export interface CarDetailsView {
+  id?: number; 
+  name: string;
+  category: string;
+  price: string;
+  power: string;
+  speed: string;
   fuel: string;
-  mileage: string;
+  year: string;
+  km: string;
+  transmission: string;
+  groundClearance: string;
+  bootSpace: string;
+  engine: string;
   torque: string;
+  owners: string;
+  image: string;
+  status?: string; 
+  // --- ADDED THESE TO MATCH YOUR OBJECT ---
+  mileage: string;
   drivetrain: string;
   seats: string;
   color: string;
-  groundClearance: string;
-  bootSpace: string;
   warranty: string;
   description: string;
   features: string[];
@@ -22,6 +34,7 @@ interface CarDetailsView {
 
 @Component({
   selector: 'app-car-details',
+  standalone: true, // Recommended for modern Angular
   imports: [CommonModule],
   templateUrl: './car-details.html',
   styleUrl: './car-details.css',
@@ -30,7 +43,9 @@ export class CarDetails implements OnInit {
   car: Car | undefined;
   details: CarDetailsView | undefined;
 
-  private readonly defaultDetails: CarDetailsView = {
+  // Added 'as any' or fill in dummy values for name/price if needed, 
+  // but better to just fix the interface as shown above.
+  private readonly defaultDetails: Partial<CarDetailsView> = {
     year: '2024',
     transmission: 'Automatic',
     fuel: 'Petrol',
@@ -38,12 +53,11 @@ export class CarDetails implements OnInit {
     torque: '650 Nm',
     drivetrain: 'AWD',
     seats: '5',
-    color: 'Obsidian Black',
+    color: '',
     groundClearance: '210 mm',
     bootSpace: '450 L',
     warranty: '3 Years / 1,00,000 km',
-    description:
-      'A performance-focused luxury machine with sharp handling, premium comfort, and a bold road presence.',
+    description: 'A performance-focused luxury machine...',
     features: [
       'Adaptive suspension',
       '360° camera',
@@ -65,6 +79,8 @@ export class CarDetails implements OnInit {
     const id = idParam ? Number(idParam) : Number.NaN;
 
     if (!idParam || Number.isNaN(id)) {
+      console.log("idparam if statement");
+      
       this.router.navigate(['/collection']);
       return;
     }
@@ -74,6 +90,7 @@ export class CarDetails implements OnInit {
       .pipe(take(1))
       .subscribe(car => {
         if (!car) {
+          console.log("carsdata if statement");
           this.router.navigate(['/collection']);
           return;
         }
@@ -88,16 +105,27 @@ export class CarDetails implements OnInit {
   }
 
   private buildDetails(car: Car): CarDetailsView {
+    // We combine car data with defaults. 
+    // Type casting 'as CarDetailsView' ensures it satisfies the interface.
     return {
       ...this.defaultDetails,
-      year: car.year || this.defaultDetails.year,
+      name: car.name,
+      category: car.category,
+      price: car.price,
+      power: car.power,
+      speed: car.speed,
+      image: car.image,
+      engine: car.engine,
+      owners: car.owners,
+      km: car.km,
+      color: car.color || this.defaultDetails.color || '', // Fallback for color
+      year: car.year || this.defaultDetails.year,   
       transmission: car.transmission || this.defaultDetails.transmission,
       fuel: car.fuel || this.defaultDetails.fuel,
-      mileage: car.km || this.defaultDetails.mileage,
+      mileage: car.km || this.defaultDetails.mileage, // Note: km and mileage logic
       torque: car.torque || this.defaultDetails.torque,
-      groundClearance:
-        car.groundClearance || this.defaultDetails.groundClearance,
+      groundClearance: car.groundClearance || this.defaultDetails.groundClearance,
       bootSpace: car.bootSpace || this.defaultDetails.bootSpace,
-    };
+    } as CarDetailsView;
   }
 }

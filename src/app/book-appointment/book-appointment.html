@@ -57,7 +57,7 @@
           placeholder="Additional message..."></textarea>
         </div>
 
-        <button type="submit" [disabled]="f.invalid" (click)="onSubmit">Book Appointment</button>
+        <button type="submit" [disabled]="f.invalid" (click)="onSubmit()">Book Appointment</button>
 
         <p class="success" *ngIf="f.submitted && f.invalid">
           ✔ Appointment Booked Successfully!

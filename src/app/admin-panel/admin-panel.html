@@ -1,0 +1,105 @@
+<div class="admin-container">
+  <section class="add-car-section">
+    <h2>{{ isEditing ? 'Edit Vehicle' : 'Register Premium Vehicle' }}</h2>
+   <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="car-form-grid">
+  <div class="input-group"><label>Vehicle Name</label><input formControlName="name"></div>
+  <div class="input-group">
+    <label>Category</label>
+    <select formControlName="category">
+      <option value="" disabled selected>Select cars category</option>
+      <option value="sports">Sports</option>
+      <option value="luxury">Luxury</option>
+      <option value="suv">SUV</option>
+    </select>
+  </div>
+  <div class="input-group"><label>Price</label><input formControlName="price"></div>
+  <div class="input-group"><label>Power</label><input formControlName="power"></div>
+  <div class="input-group"><label>Top Speed</label><input formControlName="speed"></div>
+  <div class="input-group"><label>Engine</label><input formControlName="engine"></div>
+  <div class="input-group"><label>Torque</label><input formControlName="torque"></div>
+  <div class="input-group"><label>Ground Clearance</label><input formControlName="groundClearance"></div>
+  <div class="input-group"><label>Boot Space</label><input formControlName="bootSpace"></div>
+  <div class="input-group"><label>Year</label><input formControlName="year"></div>
+  <div class="input-group"><label>KM Driven</label><input formControlName="km"></div>
+  <div class="input-group"><label>Owners</label><input formControlName="owners"></div>
+  <div class="input-group"><label>Image URL</label><input formControlName="image"></div>
+
+  <div class="input-group"><label>Fuel Type</label><input formControlName="fuel"></div>
+  <div class="input-group"><label>Transmission</label><input formControlName="transmission"></div>
+  <div class="input-group"><label>Mileage</label><input formControlName="mileage"></div>
+  <!-- <div class="input-group"><label>Drivetrain</label><input formControlName="drivetrain"></div> -->
+    <div class="input-group">
+    <label>Drivetrain</label>
+    <select formControlName="drivetrain">
+      <option value="" disabled selected>Select drivetrain type</option>
+      <option value="fwd">FWD</option>
+      <option value="rwd">RWD</option>
+      <option value="awd">AWD</option>
+      <option value="4wd">4WD</option>
+    </select>
+  </div>
+  <div class="input-group"><label>Seats</label><input formControlName="seats"></div>
+  <div class="input-group"><label>Color</label><input formControlName="color"></div>
+  <div class="input-group"><label>Warranty</label><input formControlName="warranty"></div>
+  <div class="input-group"><label>Description</label><input formControlName="description"></div>
+  <div class="input-group"><label>Features</label><input formControlName="features" placeholder="Feature 1, Feature 2"></div>
+
+  <div class="full-width">
+    <button type="submit" class="btn-primary">
+      {{ isEditing ? 'Save Changes' : 'Upload to Showroom' }}
+    </button>
+    <button type="button" *ngIf="isEditing" (click)="resetForm()" class="btn-cancel">
+      Cancel
+    </button>
+  </div>
+</form>
+  </section>
+
+
+
+  <section class="add-car-section">
+  </section>
+  <section class="table-section">
+    <h2>Showroom Inventory</h2>
+
+    <div *ngIf="!isUnlocked" class="password-screen">
+      <p>Please enter password to view inventory:</p>
+      <input type="password" [(ngModel)]="passwordInput" [ngModelOptions]="{standalone: true}"
+        placeholder="Enter Admin Password" (keyup.enter)="unlockInventory()">
+      <button (click)="unlockInventory()" class="btn-primary">Access Inventory</button>
+    </div>
+
+    <div *ngIf="isUnlocked">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <p style="color: green;">✔ Access Granted</p>
+        <button (click)="lockInventory()" class="btn-cancel" style="padding: 5px 10px; font-size: 12px;">Lock
+          Gallery</button>
+      </div>
+
+      <table *ngIf="cars.length > 0">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td><img [src]="car.image" width="50"></td>
+            <td>{{car.name}}</td>
+            <td>
+              <span class="badge" [ngClass]="{'sold': car.status === 'Sold Out'}">{{car.status}}</span>
+            </td>
+            <td>
+              <button class="btn-edit" (click)="editCar(car)">Edit</button>
+              <button class="btn-sold" (click)="toggleSoldOut(car)">Status</button>
+              <button class="btn-delete" (click)="deleteCar(car.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

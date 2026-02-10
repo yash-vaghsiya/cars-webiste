@@ -14,7 +14,11 @@
         <li> <a id="a-tag" [routerLink]="['/sell-car']">Sell Car</a> </li>
         <li> <a id="a-tag" [routerLink]="['/about-us']">About Us</a> </li>
         <li> <a id="a-tag" [routerLink]="['/contact-us']">Contact Us</a> </li>
-        
+         @if (isAdmin()) {
+  <li>
+    <a id="a-tag" routerLink="/admin-panel">Admin Panel</a>
+  </li>
+  }
         @if (!isLoggedIn()) {
         <li><a id="a-tag" routerLink="Login">Login</a></li>
         }

@@ -17,8 +17,15 @@ export class Navbar {
     return this.auth.isLoggedIn();
   }
 
+  
+isAdmin(): boolean {
+    return localStorage.getItem('email') === 'admin@gmail.com';
+  }
+
   logout(): void {
-    this.auth.logout();
-    this.router.navigate(['/Login']);
+     this.auth.logout();
+     this.router.navigate(['/Login']);
+    localStorage.removeItem('isLoggedIn');   // remove login
+    localStorage.removeItem('email');       // remove admin identity
   }
 }

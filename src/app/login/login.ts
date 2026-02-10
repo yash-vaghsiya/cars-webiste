@@ -1,27 +1,3 @@
-// import { Component } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// @Component({
-//   selector: 'app-root',
-//   standalone: true,           // Ensure this is set to true
-//   imports: [CommonModule, FormsModule],    // 2. Add it here
-//   templateUrl: './login.html',
-//   styleUrls: ['./login.css']
-// })
-// export class Login {
-//   currentView: string = 'login';
-
-//   switchView(view: string) {
-//     this.currentView = view;
-//   }
-
-//   onSubmit() {
-//     console.log('Action performed for: ' + this.currentView);
-//   }
-// }
-
-
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -36,11 +12,6 @@ import { AuthService } from '../auth.service.ts-guard';
   styleUrls: ['./login.css']
 })
 export class Login {
-
-    // ✅ PREDEFINED LOGIN (you can change later)
-  private readonly VALID_EMAIL = 'admin@gmail.com';
-  private readonly VALID_PASSWORD = '123456';
-
   currentView: string = 'login';
   email: string = '';
   password: string = '';
@@ -55,33 +26,43 @@ export class Login {
 
   switchView(view: string) {
     this.currentView = view;
-    this.errorMessage = ''; // Clear error when switching views
+    this.errorMessage = '';
   }
 
   onLogin() {
-    if (!this.email.includes('@') || !this.password) {
-      this.errorMessage = 'Please enter email and password';
+    // 1. Basic Validation
+    if (!this.email || !this.password) {
+      this.errorMessage = 'Please enter both email and password';
       return;
     }
 
-    // Simple email validation
-    if (!this.email.includes('admin@gmail.com')) {
-      this.errorMessage = 'Please enter a valid email';
-      return;
-    }
-if (!this.password.includes('admin123')) {
-      this.errorMessage = 'Please enter a valid password';
-      return;
-    }
-
-    // Attempt login
-    if (this.authService.login(this.email, this.password)) {
+    // 2. Role-Based Redirection Logic
+    if (this.email === 'admin@gmail.com' && this.password === 'admin123') {
+      // ✅ Admin Login
+       localStorage.setItem('isLoggedIn', 'true');
+  localStorage.setItem('email', this.email);  
       this.errorMessage = '';
+      this.authService.login(this.email, this.password); // Still call service to set state
       this.router.navigate(['/Home']);
-    } else {
-      this.errorMessage = 'Login failed. Please try again.';
+    } 
+    else if (this.email === 'user@gmail.com' && this.password === 'user123') {
+      // ✅ Standard User Login
+      this.errorMessage = '';
+      this.authService.login(this.email, this.password);
+      this.router.navigate(['/Home']);
+    } 
+    else {
+      // ❌ Generic Check (in case you have other users in AuthService)
+      if (this.authService.login(this.email, this.password)) {
+        this.router.navigate(['/Home']);
+      } else {
+        this.errorMessage = 'Invalid email or password. Please try again.';
+      }
     }
   }
+
+  // Rest of your onSignup and onPasswordReset methods...
+
 
   onSignup() {
     if (!this.fullName || !this.signupEmail || !this.signupPassword || !this.phoneNumber) {
@@ -114,19 +95,4 @@ if (!this.password.includes('admin123')) {
     alert('Password reset link sent to ' + this.resetEmail);
     this.switchView('login');
   }
-
-  onSubmit() {
-    if (this.currentView === 'login') {
-      this.onLogin();
-    } else if (this.currentView === 'signup') {
-      this.onSignup();
-    } else if (this.currentView === 'forgot') {
-      this.onPasswordReset();
-    }
-  }
 }
-
-
-
-
-

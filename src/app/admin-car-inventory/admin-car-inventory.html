@@ -1,0 +1,69 @@
+<div class="admin-container">
+  <app-admin-navbar></app-admin-navbar>
+
+  <!-- <section class="table-section">
+    <div class="inventory-header">
+      <h2>Showroom Inventory</h2>
+      <div *ngIf="isUnlocked" class="status-controls">
+        <span class="access-text">✔ Admin Access</span>
+        <button (click)="lockInventory()" class="btn-lock"><i class="fas fa-lock"></i> Lock Gallery</button>
+      </div>
+    </div>
+
+    <div *ngIf="!isUnlocked" class="password-screen">
+      <div class="lock-icon"><i class="fas fa-user-shield"></i></div>
+      <h3>Access Restricted</h3>
+      <p>Please enter the administrator password to manage inventory.</p>
+      <input type="password" [(ngModel)]="passwordInput" placeholder="Enter Admin Password" (keyup.enter)="unlockInventory()">
+      <button (click)="unlockInventory()" class="btn-primary">Unlock System</button>
+    </div> -->
+
+    <!-- <div *ngIf="isUnlocked" class="table-wrapper"> -->
+      <table *ngIf="cars().length > 0">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Vehicle Details</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars()">
+            <td>
+              <div class="car-img-container">
+                <img [src]="car.image" [alt]="car.name">
+              </div>
+            </td>
+            <td>
+              <div class="car-info">
+                <strong>{{car.name}}</strong>
+                <span>{{car.year}} | {{car.km}} KM</span>
+              </div>
+            </td>
+            <td><span class="category-tag">{{car.category}}</span></td>
+            <td><strong>{{car.price}}</strong></td>
+            <td>
+              <span class="badge" [ngClass]="{'sold': car.status === 'Sold Out', 'available': car.status !== 'Sold Out'}">
+                {{car.status}}
+              </span>
+            </td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-edit" (click)="editCar(car)" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="btn-status" (click)="toggleSoldOut(car)" title="Toggle Status"><i class="fas fa-sync-alt"></i></button>
+                <button class="btn-delete" (click)="deleteCar(car.id)" title="Delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="cars().length === 0" class="empty-state">
+        <p>No vehicles found in the showroom database.</p>
+      </div>
+    <!-- </div> -->
+  <!-- </section> -->
+</div>

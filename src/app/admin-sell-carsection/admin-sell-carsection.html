@@ -1,0 +1,57 @@
+<div class="admin-container">
+  <app-admin-navbar></app-admin-navbar>
+  <div class="table-section">
+    <div class="inventory-header">
+      <h2>Seller Inquiries (Full Details)</h2>
+    </div>
+    
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>CUSTOMER</th>
+            <th>LOCATION</th>
+            <th>CAR DETAILS</th>
+            <th>SPECS</th>
+            <th>REG NO.</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of inquiries()">
+            <td>
+              <div class="car-info">
+                <strong>{{ item.name }}</strong>
+                <span>{{ item.mobile }} , </span>
+                <span>{{ item.email }}</span>
+              </div>
+            </td>
+            <td>
+              {{ item.city }}{{ item.city && item.state ? ', ' : '' }}{{ item.state }}
+            </td>
+            <td>
+              <div class="car-info">
+                <strong>{{ item.brand }} {{ item.model }}</strong>
+                <span>{{ item.variant }}</span>
+              </div>
+            </td>
+            <td>
+              <span class="badge available" *ngIf="item.year">{{ item.year }}</span>
+              <span class="badge available" *ngIf="item.km">{{ item.km }} KM</span>
+            </td>
+            <td>
+              <span class="category-tag" *ngIf="item.regNumber">{{ item.regNumber }}</span>
+            </td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-delete" (click)="onDelete(item.id)">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -9,14 +9,14 @@
 
     <ul class="ul-tag">
 
-        <li> <a id="a-tag" routerLink="Home">Home</a> </li>
+        <li> <a id="a-tag" [routerLink]="['/Home']">Home</a></li>
         <li> <a id="a-tag" [routerLink]="['/collection']">Collection</a> </li>
         <li> <a id="a-tag" [routerLink]="['/sell-car']">Sell Car</a> </li>
         <li> <a id="a-tag" [routerLink]="['/about-us']">About Us</a> </li>
         <li> <a id="a-tag" [routerLink]="['/contact-us']">Contact Us</a> </li>
          @if (isAdmin()) {
   <li>
-    <a id="a-tag" routerLink="/admin-panel">Admin Panel</a>
+    <a id="a-tag" routerLink="/admin-add-vehicle">Admin Panel</a>
   </li>
   }
         @if (!isLoggedIn()) {

@@ -2,8 +2,11 @@
     display: flex;
     justify-content: space-between;
     height: 70px;
+    z-index: 1000;
     align-items: center;
     background-color: black;
+    position:fixed;
+    width: 100%;
 }
 
 .logo {

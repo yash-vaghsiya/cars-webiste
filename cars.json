@@ -20,7 +20,7 @@
       "status": "Available",
       "mileage": "2 km",
       "drivetrain": "rwd",
-      "seats": "5",
+      "seats": "2",
       "color": "black",
       "warranty": "2 year",
       "description": "ground clearns is very lowe",
@@ -285,8 +285,8 @@
     {
       "id": "15",
       "name": "Rolls-Royce Cullinan ",
-      "category": "sports",
-      "price": "258794613",
+      "category": "luxury",
+      "price": "₹2.50 Cr.",
       "image": "https://hips.hearstapps.com/hmg-prod/images/2025-rolls-royce-cullinan-series-2-pr-103-68d449e619fde.jpg?crop=0.829xw:0.700xh;0.160xw,0.149xh&resize=2048:*",
       "power": "252",
       "speed": "254",
@@ -307,6 +307,113 @@
       "description": "asasdsdfaf",
       "features": "na",
       "status": "Available"
+    },
+    {
+      "id": "16",
+      "name": "BMW M4",
+      "category": "sports",
+      "price": "₹1.52 Cr",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/cobb-3movie-180221-1184-1615300284.jpg?crop=1.00xw:0.753xh;0,0.171xh&resize=1200:*",
+      "power": "473 HP",
+      "speed": "250",
+      "engine": "S58 3.0-litre M TwinPower Turbo inline-six",
+      "torque": "650 nm ",
+      "fuel": "petrol ",
+      "transmission": "automatic",
+      "groundClearance": "123 mm",
+      "bootSpace": "440 L",
+      "km": 25000,
+      "year": 2021,
+      "mileage": "10 km",
+      "drivetrain": "awd",
+      "seats": 4,
+      "color": "Green",
+      "owners": 1,
+      "warranty": "5 Year ",
+      "description": "high-performance, aggressive luxury coupe featuring a 3.0-litre S58 TwinPower Turbo inline-six engine, delivering up to 530 hp and 650 Nm of torque",
+      "features": "14.9-inch curved display with iDrive 8.5, carbon fiber roof, and aggressive M styling with a quad-exhaust system",
+      "status": "Available"
+    },
+    {
+      "id": "17",
+      "name": "Mercedes-Benz EQC ",
+      "category": "electric",
+      "price": "₹99.50 Lakh",
+      "image": "https://imgd.aeplcdn.com/664x374/n/cw/ec/44579/eqc-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80",
+      "power": "406 hp",
+      "speed": "180",
+      "engine": "EQC 400 4MATIC",
+      "torque": "760",
+      "fuel": "Electric",
+      "transmission": "automatic ",
+      "groundClearance": "140 mm",
+      "bootSpace": "500 l",
+      "km": 10000,
+      "year": 2020,
+      "mileage": "460 km",
+      "drivetrain": "awd",
+      "seats": 5,
+      "color": "Matte Grey.",
+      "owners": 2,
+      "warranty": "2 year",
+      "description": "luxury electric compact SUV produced from 2019 to 2023, combining premium comfort with a ~450 km range",
+      "features": "80 kWh battery, dual motors, 4MATIC all-wheel drive, and an output of 402-408 hp with 760-765 Nm of torque.",
+      "status": "Available"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1cc4",
+      "name": "Yash Vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "phone": "8849669921",
+      "service": "Test Drive",
+      "date": "2026-02-12",
+      "message": "i comin on the sharp 12'o clock",
+      "status": "Approved"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "yash vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "password": "yash5878",
+      "phone": "8849669921"
+    },
+    {
+      "id": "ec0b",
+      "name": "yash vaghasiya",
+      "email": "gvaghasiya27@gmail.com",
+      "password": "58785878",
+      "phone": "88496 69921"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "b34b",
+      "name": "yash",
+      "email": "yqahs@gmail.com",
+      "mobile": "8849669921",
+      "state": "Gujarat",
+      "city": "Ahmedabad",
+      "brand": "BMW",
+      "model": "bmw m4",
+      "variant": "sport",
+      "year": "2023",
+      "km": 365464,
+      "ownership": "Second Owner",
+      "regNumber": "GJ27 01 BM 0001"
+    }
+  ],
+  "messages": [
+    {
+      "id": "ae7d",
+      "firstName": "yash",
+      "lastName": "vaghasiya",
+      "email": "yash@gmail.com",
+      "subject": "deails",
+      "message": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error recusandae vel tempora amet, ea at totam, laborum ad dignissimos esse eos quaerat natus eaque, nesciunt aliquid? Dolorum temporibus illum placeat.</p>\n"
     }
   ]
 }

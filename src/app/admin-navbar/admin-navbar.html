@@ -1,0 +1,47 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo-icon"><i class="fas fa-car"></i></div>
+    <h1>Automotive</h1>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <li (click)="scrollTo('add-vehicle')">
+      <a id="a-tag" [routerLink]="['/admin-add-vehicle']" class="nav-item">
+        <i class="fas fa-plus-circle"></i>
+        <span>Register Vehicle</span></a>
+    </li>
+
+    <li (click)="scrollTo('inventory')">
+      <a id="a-tag" [routerLink]="['/admin-car-inventory']" class="nav-item">
+        <i class="fas fa-warehouse"></i>
+        <span>Showroom Inventory</span></a>
+    </li>
+
+
+    <li (click)="scrollTo('admin-book-appointment')">
+      <a id="a-tag" [routerLink]="['/admin-book-appointment']" class="nav-item">
+        <i class="fas fa-calendar-check"></i>
+        <span>Booking Requests</span></a>
+    </li>
+
+    <li (click)="scrollTo('admin-sell-crasection')">
+      <a id="a-tag" [routerLink]="['/admin-sell-carsection']" class="nav-item">
+        <i class="fa fa-car"></i>
+        <span>Car Seller Requests</span></a>
+    </li>
+
+    <li (click)="scrollTo('admin-send-message')">
+      <a id="a-tag" [routerLink]="['/admin-send-message']" class="nav-item">
+        <!-- <i class="fa fa-envelope-square"></i> -->
+         <i class="fa fa-envelope"></i>
+        <span>send message</span></a>
+    </li>
+
+    <!-- <div class="nav-divider"></div>
+    <a routerLink="/login" class="nav-item logout-link">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
+    </a> -->
+  </nav>
+</aside>

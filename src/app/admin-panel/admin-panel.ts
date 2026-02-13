@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminService } from '../service/admin-service';
 import { CommonModule } from '@angular/common';
+import { AdminNavbar } from '../admin-navbar/admin-navbar';
+// import { EmailService } from '../services/email.service';
 
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule ,FormsModule ],
+  imports: [ReactiveFormsModule, CommonModule ,FormsModule, AdminNavbar],
   templateUrl: './admin-panel.html',
   styleUrls: ['./admin-panel.css']
 })
@@ -22,21 +24,27 @@ ngOnInit() {
   this.initForm();
   // Call this immediately so data loads as soon as the page opens
   this.loadCars(); 
+
+  // ==========================================================
+
+   this.initForm();
+  this.loadCars();
+  this.loadAppointments();
 }
 
-loadCars() {
-  console.log("Fetching all cars automatically...");
-  this.adminService.getCars().subscribe({
-    next: (res) => {
-      // Direct assignment ensures the view updates immediately
-      this.cars = res; 
-      console.log("Cars loaded:", this.cars.length);
-    },
-    error: (err) => {
-      console.error("Could not load cars on startup:", err);
-    }
-  });
-}
+// loadCars() {
+//   console.log("Fetching all cars automatically...");
+//   this.adminService.getCars().subscribe({
+//     next: (res) => {
+//       // Direct assignment ensures the view updates immediately
+//       this.cars = res; 
+//       console.log("Cars loaded:", this.cars.length);
+//     },
+//     error: (err) => {
+//       console.error("Could not load cars on startup:", err);
+//     }
+//   });
+// }
 
   initForm() {
     this.carForm = this.fb.group({
@@ -55,7 +63,7 @@ loadCars() {
       km: ['', Validators.required],
       year: ['', Validators.required],
       mileage: ['', Validators.required],
-      drivetrain: ['AWD', Validators.required],
+      drivetrain: ['', Validators.required],
       seats: ['', Validators.required],
       color: ['', Validators.required],
       owners: ['', Validators.required],
@@ -151,7 +159,7 @@ onSubmit() {
     this.isEditing = false;
     this.currentCarId = null;
     this.originalCarData = null;
-    this.carForm.reset({ category: 'Select', fuel: 'Petrol', transmission: 'Automatic' });
+    this.carForm.reset({ drivetrain: 'Select', category: 'Select', fuel: 'Petrol', transmission: 'Automatic' });
   }
 
   // Add this to your variables at the top of the class
@@ -202,4 +210,86 @@ onAddCar() {
     alert("Form is invalid. Check all fields.");
   }
 }
+// =========================================================================================================================================
+
+// 1. Add this to your variables
+appointments: any[] = [];
+
+// 2. Update ngOnInit
+
+
+// 3. Add these methods
+// loadAppointments() {
+//   this.adminService.getAppointments().subscribe({
+//     next: (res) => {
+//       this.appointments = res; // Updates the view immediately
+//     },
+//     error: (err) => console.error("Could not load appointments:", err)
+//   });
+// }
+
+// // deleteAppointment(id: any) {
+// //   if(confirm('Remove this request?')) {
+// //     this.adminService.deleteAppointment(id).subscribe(() => this.loadAppointments());
+// //   }
+// // }
+
+
+  // approveAppointment(apt: any) {
+  //   const updatedApt = { ...apt, status: 'Approved' };
+  //   this.adminService.updateAppointment(apt.id, updatedApt).subscribe(() => {
+  //     this.loadAppointments(); // Refresh the list
+  //     this.emailService.sendAppointmentStatus(apt.email, apt.name, 'Approved', apt.date);
+  //   });
+  // }
+
+  // 2. Reject an appointment
+  // rejectAppointment(apt: any) {
+  //   const updatedApt = { ...apt, status: 'Rejected' };
+  //   this.adminService.updateAppointment(apt.id, updatedApt).subscribe(() => {
+  //     this.loadAppointments(); // Refresh the list
+  //     this.emailService.sendAppointmentStatus(apt.email, apt.name, 'Rejected', apt.date);
+  //   });
+  // }
+
+// // 3. Delete an appointment
+// deleteAppointment(id: any) {
+//   if (confirm('Are you sure you want to permanently delete this request?')) {
+//     this.adminService.deleteAppointment(id).subscribe(() => {
+//       this.loadAppointments(); // Refresh the list
+//     });
+//   }
+// }
+loadCars() {
+    this.adminService.getCars().subscribe({
+      next: (res) => { this.cars = res; },
+      error: (err) => console.error("Cars error:", err)
+    });
+  }
+
+  loadAppointments() {
+    this.adminService.getAppointments().subscribe({
+      next: (res) => { 
+        this.appointments = res; 
+        console.log("Appointments loaded immediately:", this.appointments.length);
+      },
+      error: (err) => console.error("Appointments error:", err)
+    });
+  }
+
+  // Logic for the Approve/Reject/Delete buttons
+  updateAptStatus(apt: any, newStatus: string) {
+    const updatedApt = { ...apt, status: newStatus };
+    this.adminService.updateAppointment(apt.id, updatedApt).subscribe(() => {
+      this.loadAppointments(); // Refresh immediately after change
+    });
+  }
+
+  deleteAppointment(id: any) {
+    if (confirm('Delete this request?')) {
+      this.adminService.deleteAppointment(id).subscribe(() => {
+        this.loadAppointments(); // Refresh immediately after delete
+      });
+    }
+  }
 }

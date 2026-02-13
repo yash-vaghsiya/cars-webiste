@@ -20,6 +20,7 @@
 .image-panel {
   position: relative;
   border-radius: 24px;
+  margin-top: 30px;
   overflow: hidden;
   background: linear-gradient(135deg, #0f121a, #0a0d12);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
@@ -292,4 +293,35 @@
   .cta-row {
     flex-direction: column;
   }
+}
+
+
+
+
+
+
+.car-card {
+  position: relative; /* This is vital! */
+  overflow: hidden;   /* This keeps the ribbon inside the card */
+}
+
+.ribbon-wrapper {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.ribbon {
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  top: 40px;
+  width: 200px;
+  background-color: #ff0000; /* Red color */
 }

@@ -1,0 +1,27 @@
+<div class="admin-container">
+  <app-admin-navbar></app-admin-navbar>
+  <div class="table-section">
+  <h2>Customer Messages</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let msg of messages()">
+        <td>{{ msg.firstName }} {{ msg.lastName }}<br><small>{{ msg.email }}</small></td>
+        <td>{{ msg.subject }}</td>
+        <td>{{ msg.message }}</td>
+        <td><button class="btn-delete" (click)="onDelete(msg.id)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

@@ -7,7 +7,7 @@
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 80px 20px;
 }
 
 /* HERO */
@@ -220,11 +220,11 @@ button:hover {
     box-shadow: 0 12px 40px rgba(212, 175, 55, 0.45);
 }
 
-.footer-note {
+.footer-note{
+    color:white;
     margin-top: 15px;
     text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    font-size: 1rem;  
 }
 
 /* RESPONSIVE */

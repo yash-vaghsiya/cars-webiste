@@ -8,7 +8,7 @@ export interface CarDetailsView {
   id?: number; 
   name: string;
   category: string;
-  price: string;
+  price: string | number;
   power: string;
   speed: string;
   fuel: string;
@@ -22,7 +22,6 @@ export interface CarDetailsView {
   owners: string;
   image: string;
   status?: string; 
-  // --- ADDED THESE TO MATCH YOUR OBJECT ---
   mileage: string;
   drivetrain: string;
   seats: string;
@@ -51,8 +50,7 @@ export class CarDetails implements OnInit {
     fuel: 'Petrol',
     mileage: '12 km/l',
     torque: '650 Nm',
-    drivetrain: 'AWD',
-    seats: '5',
+    // seats: '5',
     color: '',
     groundClearance: '210 mm',
     bootSpace: '450 L',
@@ -116,8 +114,10 @@ export class CarDetails implements OnInit {
       speed: car.speed,
       image: car.image,
       engine: car.engine,
+      drivetrain: car.drivetrain || this.defaultDetails.drivetrain || '' ,
       owners: car.owners,
       km: car.km,
+      seats: this.defaultDetails.seats || '', // Assuming 5 seats as default
       color: car.color || this.defaultDetails.color || '', // Fallback for color
       year: car.year || this.defaultDetails.year,   
       transmission: car.transmission || this.defaultDetails.transmission,

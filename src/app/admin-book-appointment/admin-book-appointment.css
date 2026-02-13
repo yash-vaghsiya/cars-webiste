@@ -1,0 +1,197 @@
+.admin-container {
+  padding: 20px;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.table-section {
+  background: #fff;
+  margin-top: 50px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.count-badge {
+  background: #2c3e50;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 15px;
+  background-color: #f8f9fa;
+  color: #333;
+  border-bottom: 2px solid #eee;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+/* Status Badges */
+.badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge.pending { background: #fff3cd; color: #856404; }
+.badge.approved { background: #d4edda; color: #155724; }
+.badge.rejected { background: #f8d7da; color: #721c24; }
+
+/* Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.btn-approve { background: #27ae60; color: white; }
+.btn-reject { background: #e67e22; color: white; }
+.btn-delete { background: #e74c3c; color: white; }
+
+button:hover { opacity: 0.8; }
+
+.no-data {
+  text-align: center;
+  padding: 50px;
+  color: #999;
+}
+
+.no-data i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+
+.admin-container {
+  /* 1. Push content to the right of the sidebar */
+  margin-left: 260px; /* Match your sidebar width */
+  width: calc(100% - 260px); /* Fill remaining width only */
+  
+  padding: 30px;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+  transition: all 0.3s ease; /* Smooth move if sidebar collapses */
+}
+
+.table-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Slightly deeper shadow for depth */
+}
+
+/* 2. Responsive adjustment for Tablets/Small Desktops */
+@media (max-width: 992px) {
+  .admin-container {
+    margin-left: 80px; /* Match your collapsed sidebar width */
+    width: calc(100% - 80px);
+    padding: 20px;
+  }
+}
+
+/* 3. Mobile handling */
+@media (max-width: 768px) {
+  .admin-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  /* Make table scrollable on small phones so it doesn't break layout */
+  .table-section {
+    overflow-x: auto;
+  }
+  
+  table {
+    min-width: 600px;
+  }
+}
+
+/* ... keep the rest of your badge and button CSS as it was ... */
+
+
+
+
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0 15px;
+  width: 300px;
+  transition: 0.3s;
+}
+
+.search-box:focus-within {
+  border-color: #3498db;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+.search-box i {
+  color: #95a5a6;
+  margin-right: 10px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  padding: 10px 0;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-box {
+    width: 100%;
+  }
+}

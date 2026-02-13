@@ -1,0 +1,140 @@
+<!-- <div class="admin-container">
+  <app-admin-navbar></app-admin-navbar>
+
+  <section class="table-section">
+    <div class="header-flex">
+      <h2>Customer Booking Requests</h2>
+      <span class="count-badge">{{ appointments().length }} Total</span>
+    </div>
+
+    <table *ngIf="appointments().length > 0">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Message</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apt of appointments()">
+          <td>
+            <strong>{{apt.name}}</strong><br>
+            <small>{{apt.phone}}</small>
+          </td>
+          <td>{{apt.service}}</td>
+          <td>{{apt.date}}</td>
+          <td>{{apt.message}}</td>
+          <td>
+            <span class="badge" [ngClass]="{
+              'approved': apt.status === 'Approved',
+              'rejected': apt.status === 'Rejected',
+              'pending': !apt.status || apt.status === 'Pending'
+            }">
+              {{ apt.status || 'Pending' }}
+            </span>
+          </td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-approve" (click)="approveAppointment(apt)">
+                <i class="fas fa-check"></i> Approve
+              </button>
+              <button class="btn-reject" (click)="rejectAppointment(apt)">
+                <i class="fas fa-times"></i> Reject
+              </button>
+              <button class="btn-delete" (click)="deleteAppointment(apt.id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="appointments.length === 0" class="no-data">
+      <i class="fas fa-calendar-times"></i>
+      <p>No pending appointments found.</p>
+    </div>
+  </section>
+</div> -->
+
+
+<div class="admin-container">
+  <app-admin-navbar></app-admin-navbar>
+
+  <section class="table-section">
+    <div class="header-flex">
+      <div class="title-area">
+        <h2>Customer Booking Requests</h2>
+        <span class="count-badge">{{ filteredAppointments.length }} Found</span>
+      </div>
+      
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          placeholder="Search by name or phone...">
+      </div>
+    </div>
+<table *ngIf="appointments().length > 0">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Message</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apt of appointments()">
+          <td>
+            <strong>{{apt.name}}</strong><br>
+            <small>{{apt.phone}}</small>
+          </td>
+          <td>{{apt.service}}</td>
+          <td>{{apt.email}}</td>
+          <td>{{apt.date}}</td>
+          <td>{{apt.message}}</td>
+          <td>
+            <span class="badge" [ngClass]="{
+              'approved': apt.status === 'Approved',
+              'rejected': apt.status === 'Rejected',
+              'pending': !apt.status || apt.status === 'Pending'
+            }">
+              {{ apt.status || 'Pending' }}
+            </span>
+          </td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-approve" (click)="approveAppointment(apt)">
+                <i class="fas fa-check"></i> Approve
+              </button>
+              <button class="btn-reject" (click)="rejectAppointment(apt)">
+                <i class="fas fa-times"></i> Reject
+              </button>
+              <button class="btn-delete" (click)="deleteAppointment(apt.id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table *ngIf="filteredAppointments.length > 0"> 
+      <tbody>
+        <tr *ngFor="let apt of filteredAppointments">
+          </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="filteredAppointments.length === 0" class="no-data">
+      <i class="fas fa-search-minus"></i>
+      <p>No matches found for "{{ searchQuery }}"</p>
+    </div>
+  </section>
+</div>

@@ -10,7 +10,7 @@
 .filters {
   display: inline-flex; 
   gap: 16px;
- margin: 20px 0 50px 475px;
+ margin: 100px 0px 50px 475px;
 }
 
 .filters button {
@@ -156,3 +156,7 @@
     height: 190px;
   }
 }
+
+
+
+

@@ -12,8 +12,8 @@
   </div>
 
   <div class="contact-container">
-<div class="badge" ></div>
-   <!-- LEFT : INFO -->
+    <div class="badge"></div>
+    <!-- LEFT : INFO -->
     <div class="contact-info">
 
       <h2>Get In Touch</h2>
@@ -41,9 +41,7 @@
 
       <!-- MAP -->
       <div class="map-box">
-        <iframe
-          src="https://www.google.com/maps?q=Ahmedabad%2C%20Gujarat%2C%20India&output=embed"
-          loading="lazy">
+        <iframe src="https://www.google.com/maps?q=Ahmedabad%2C%20Gujarat%2C%20India&output=embed" loading="lazy">
         </iframe>
       </div>
 
@@ -54,19 +52,19 @@
       <h2>Send Message</h2>
       <div class="luxury-line"></div>
 
-      <form >
+      <form>
 
         <div class="input-group">
-          <input type="text" placeholder="First Name" required>
-          <input type="text" placeholder="Last Name" required>
+          <input type="text" name="fName" [(ngModel)]="contactData.firstName" placeholder="First Name" required>
+          <input type="text" name="lName" [(ngModel)]="contactData.lastName" placeholder="Last Name" required>
         </div>
 
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Subject">
+        <input type="email" name="email" [(ngModel)]="contactData.email" placeholder="Email Address" required>
+        <input type="text" name="subject" [(ngModel)]="contactData.subject" placeholder="Subject">
 
-        <textarea placeholder="Your Message"></textarea>
+        <textarea  name="message" [(ngModel)]="contactData.message" placeholder="Your Message"></textarea>
 
-        <button type="submit" onclick="submitForm()">
+        <button type="submit" (click)="submitForm()" >
           Send Message
         </button>
 
@@ -76,8 +74,6 @@
 
       </form>
     </div>
-   
-
   </div>
 
 </section>

@@ -1,0 +1,68 @@
+<div class="admin-container">
+  <app-admin-navbar></app-admin-navbar>
+
+  <section class="add-car-section">
+    <div class="form-header">
+      <h2>{{ isEditing ? 'Edit Vehicle Details' : 'Register Premium Vehicle' }}</h2>
+      <p class="subtitle">Enter the technical specifications and showroom details below.</p>
+    </div>
+
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="car-form-grid">
+      <div class="input-group"><label>Vehicle Name</label><input formControlName="name" placeholder="e.g. BMW M4"></div>
+      <div class="input-group">
+        <label>Category</label>
+        <select formControlName="category">
+          <option value="" disabled selected>Select category</option>
+          <option value="sports">Sports</option>
+          <option value="luxury">Luxury</option>
+          <option value="suv">SUV</option>
+          <option value="electric">Electric</option>
+
+        </select>
+      </div>
+      <div class="input-group"><label>Price ($)</label><input formControlName="price"></div>
+
+      <div class="input-group"><label>Power (HP)</label><input formControlName="power"></div>
+      <div class="input-group"><label>Top Speed (km/h)</label><input formControlName="speed"></div>
+      <div class="input-group"><label>Engine</label><input formControlName="engine"></div>
+
+      <div class="input-group"><label>Torque</label><input formControlName="torque"></div>
+      <div class="input-group"><label>Ground Clearance</label><input formControlName="groundClearance"></div>
+      <div class="input-group"><label>Boot Space</label><input formControlName="bootSpace"></div>
+
+      <div class="input-group"><label>Year</label><input formControlName="year" type="number"></div>
+      <div class="input-group"><label>KM Driven</label><input formControlName="km" type="number"></div>
+      <div class="input-group"><label>Owners</label><input formControlName="owners" type="number"></div>
+
+      <div class="input-group"><label>Fuel Type</label><input formControlName="fuel"></div>
+      <div class="input-group"><label>Transmission</label><input formControlName="transmission"></div>
+      <div class="input-group"><label>Mileage</label><input formControlName="mileage"></div>
+
+      <div class="input-group">
+        <label>Drivetrain</label>
+        <select formControlName="drivetrain">
+          <option value="" selected>Select drivetrain</option>
+          <option value="fwd">FWD</option>
+          <option value="rwd">RWD</option>
+          <option value="awd">AWD</option>
+          <option value="4wd">4WD</option>
+        </select>
+      </div>
+      <div class="input-group"><label>Seats</label><input formControlName="seats" type="number"></div>
+      <div class="input-group"><label>Color</label><input formControlName="color"></div>
+
+      <div class="input-group full-row"><label>Image URL</label><input formControlName="image"></div>
+      <div class="input-group full-row"><label>Warranty</label><input formControlName="warranty"></div>
+      <div class="input-group full-row"><label>Features</label><input formControlName="features" placeholder="Feature 1, Feature 2, Feature 3"></div>
+      <div class="input-group full-row"><label>Description</label><textarea formControlName="description" rows="4"></textarea></div>
+
+      <div class="form-actions full-row">
+        <button type="button" *ngIf="isEditing" (click)="resetForm()" class="btn-cancel">Cancel Edit</button>
+        <button type="submit" class="btn-primary">
+          <i class="fas" [ngClass]="isEditing ? 'fa-save' : 'fa-cloud-upload-alt'"></i>
+          {{ isEditing ? 'Update Vehicle' : 'Upload to Showroom' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

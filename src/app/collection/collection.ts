@@ -2,8 +2,8 @@ import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Carsdata, Car } from '../service/carsdata';
-import { take } from 'rxjs/operators';
-import { $locationShim } from '@angular/common/upgrade';
+// import { take } from 'rxjs/operators';
+// import { $locationShim } from '@angular/common/upgrade';
 
 
 @Component({
@@ -17,7 +17,6 @@ export class Collection implements OnInit {
   // 1. Define signals for state
   activeCategory = signal<string>('all');
   allCars = signal<Car[]>([]);
-
   // 2. Automatically compute filtered cars whenever allCars or activeCategory changes
   filteredCars = computed(() => {
     const category = this.activeCategory();
@@ -37,7 +36,12 @@ export class Collection implements OnInit {
       },
       error: (err) => console.error('Error fetching cars:', err)
     });
+    
   }
+// service/carsdata.ts
+   
+// Adding this prevents the TS2339 error
+  // ... rest of your fields
 
 filterCars(category: string): void {
   this.activeCategory.set(category); // Updates the signal value

@@ -1,5 +1,6 @@
 <div class="admin-container">
-  <section class="add-car-section">
+  <app-admin-navbar></app-admin-navbar>
+  <!-- <section class="add-car-section">
     <h2>{{ isEditing ? 'Edit Vehicle' : 'Register Premium Vehicle' }}</h2>
    <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="car-form-grid">
   <div class="input-group"><label>Vehicle Name</label><input formControlName="name"></div>
@@ -27,11 +28,11 @@
   <div class="input-group"><label>Fuel Type</label><input formControlName="fuel"></div>
   <div class="input-group"><label>Transmission</label><input formControlName="transmission"></div>
   <div class="input-group"><label>Mileage</label><input formControlName="mileage"></div>
-  <!-- <div class="input-group"><label>Drivetrain</label><input formControlName="drivetrain"></div> -->
+  <!-- <div class="input-group"><label>Drivetrain</label><input formControlName="drivetrain"></div> --
     <div class="input-group">
     <label>Drivetrain</label>
     <select formControlName="drivetrain">
-      <option value="" disabled selected>Select drivetrain type</option>
+      <option value="" selected>Select drivetrain type</option>
       <option value="fwd">FWD</option>
       <option value="rwd">RWD</option>
       <option value="awd">AWD</option>
@@ -55,10 +56,8 @@
 </form>
   </section>
 
-
-
-  <section class="add-car-section">
-  </section>
+ <!-- <section class="add-car-section">
+  </section> --
   <section class="table-section">
     <h2>Showroom Inventory</h2>
 
@@ -102,4 +101,111 @@
       </table>
     </div>
   </section>
+
+  <!-- =========================================================================================================================== -->
+
+  <!-- <section class="table-section" style="margin-top: 40px;">
+  <h2>Customer Booking Requests</h2>
+  <table *ngIf="appointments.length > 0">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Service</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let apt of appointments">
+        <td><strong>{{apt.name}}</strong></td>
+        <td>{{apt.service}}</td>
+        <td>{{apt.date}}</td>
+        <td>
+          <span class="badge" 
+            [style.background-color]="apt.status === 'Approved' ? '#d4edda' : (apt.status === 'Rejected' ? '#f8d7da' : '#fff3cd')"
+            [style.color]="apt.status === 'Approved' ? '#155724' : (apt.status === 'Rejected' ? '#721c24' : '#856404')">
+            {{ apt.status || 'Pending' }}
+          </span>
+        </td>
+        <td>
+          <div class="actions">
+            <button class="btn-edit" (click)="approveAppointment(apt)" style="background: #27ae60;">Approve</button>
+            <button class="btn-sold" (click)="rejectAppointment(apt)" style="background: #e67e22;">Reject</button>
+            <button class="btn-delete" (click)="deleteAppointment(apt.id)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section> --
+
+<div class="admin-container">
+  <!-- <section class="add-car-section">
+    <h2>{{ isEditing ? 'Edit Vehicle' : 'Register Premium Vehicle' }}</h2>
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="car-form-grid">
+      </form>
+  </section> -->
+  <!-- 
+  <section class="table-section">
+    <h2>Showroom Inventory</h2>
+    <table *ngIf="cars.length > 0">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td><img [src]="car.image" width="50"></td>
+          <td>{{car.name}}</td>
+          <td><span class="badge" [ngClass]="{'sold': car.status === 'Sold Out'}">{{car.status}}</span></td>
+          <td>
+            <button class="btn-edit" (click)="editCar(car)">Edit</button>
+            <button class="btn-sold" (click)="toggleSoldOut(car)">Status</button>
+            <button class="btn-delete" (click)="deleteCar(car.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section> --
+
+  <section class="table-section" style="margin-top: 30px;">
+    <h2>Customer Booking Requests</h2>
+    <table *ngIf="appointments.length > 0">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apt of appointments">
+          <td><strong>{{apt.name}}</strong><br><small>{{apt.phone}}</small></td>
+          <td>{{apt.service}}</td>
+          <td>{{apt.date}}</td>
+          <td>{{apt.message}}</td>
+
+          <td>
+            <span class="badge" [ngClass]="{'sold': apt.status === 'Rejected'}">
+              {{ apt.status || 'Pending' }}
+            </span>
+          </td>
+          <td>
+            <button class="btn-primary" (click)="approveAppointment(apt)" style="background: #27ae60; color: white; margin-right: 5px;">Approve</button>
+            <button class="btn-sold" (click)="rejectAppointment(apt)" style="margin-right: 5px;">Reject</button>
+            <button class="btn-delete" (click)="deleteAppointment(apt.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="appointments.length === 0" style="text-align: center; padding: 20px;">No pending appointments.</p>
+  </section>
+</div> -->
 </div>

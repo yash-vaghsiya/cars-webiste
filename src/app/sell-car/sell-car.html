@@ -14,98 +14,95 @@
     <div class="card-header">
       <h3>Add Car Details</h3>
     </div>
-
     <form>
-      <div class="form-grid">
+  <div class="form-grid">
 
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Enter your name">
-          <small class="error">Please fill out this field</small>
-        </div>
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" name="uName" [(ngModel)]="carData.name" placeholder="Enter your name">
+    </div>
 
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="Email Address">
-          <small class="error">Please fill out this field</small>
-        </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="uEmail" [(ngModel)]="carData.email" placeholder="Email Address">
+    </div>
 
-        <div class="form-group">
-          <label>Mobile</label>
-          <input type="tel" placeholder="Mobile Number">
-        </div>
+    <div class="form-group">
+      <label>Mobile</label>
+      <input type="tel" name="uMobile" [(ngModel)]="carData.mobile" placeholder="Mobile Number">
+    </div>
 
-        <div class="form-group">
-          <label>Select State</label>
-          <select>
-            <option>Select State</option>
-            <option>Gujarat</option>
-            <option>Maharashtra</option>
-          </select>
-        </div>
+    <div class="form-group">
+      <label>Select State</label>
+      <select name="state" [(ngModel)]="carData.state">
+        <option value="">Select State</option>
+        <option>Gujarat</option>
+        <option>Maharashtra</option>
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>Select City</label>
-          <select>
-            <option>Select City</option>
-            <option>Ahmedabad</option>
-            <option>Surat</option>
-          </select>
-        </div>
+    <div class="form-group">
+      <label>Select City</label>
+      <select name="city" [(ngModel)]="carData.city">
+        <option value="">Select City</option>
+        <option>Ahmedabad</option>
+        <option>Surat</option>
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>Select Brand</label>
-          <select>
-            <option>Select Car Brand</option>
-            <option>BMW</option>
-            <option>Audi</option>
-            <option>Mercedes</option>
-          </select>
-        </div>
+    <div class="form-group">
+      <label>Select Brand</label>
+      <select name="brand" [(ngModel)]="carData.brand">
+        <option value="">Select Car Brand</option>
+        <option>BMW</option>
+        <option>Audi</option>
+        <option>Mercedes</option>
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>Model</label>
-          <input type="text" placeholder="Car Model">
-        </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input type="text" name="model" [(ngModel)]="carData.model" placeholder="Car Model">
+    </div>
 
-        <div class="form-group">
-          <label>Variant</label>
-          <input type="text" placeholder="Variant">
-        </div>
+    <div class="form-group">
+      <label>Variant</label>
+      <input type="text" name="variant" [(ngModel)]="carData.variant" placeholder="Variant">
+    </div>
 
-        <div class="form-group">
-          <label>Model Year</label>
-          <select>
-            <option>Select Year</option>
-            <option>2024</option>
-            <option>2023</option>
-            <option>2022</option>
-          </select>
-        </div>
+    <div class="form-group">
+      <label>Model Year</label>
+      <select name="year" [(ngModel)]="carData.year">
+        <option value="">Select Year</option>
+        <option>2024</option>
+        <option>2023</option>
+        <option>2022</option>
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>Kilometers Driven</label>
-          <input type="number" placeholder="Kilometers Driven">
-        </div>
+    <div class="form-group">
+      <label>Kilometers Driven</label>
+      <input type="number" name="km" [(ngModel)]="carData.km" placeholder="Kilometers Driven">
+    </div>
 
-        <div class="form-group">
-          <label>Ownership</label>
-          <select>
-            <option>Select Ownership</option>
-            <option>First Owner</option>
-            <option>Second Owner</option>
-          </select>
-        </div>
+    <div class="form-group">
+      <label>Ownership</label>
+      <select name="ownership" [(ngModel)]="carData.ownership">
+        <option value="">Select Ownership</option>
+        <option>First Owner</option>
+        <option>Second Owner</option> 
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>Registration Number</label>
-          <input type="text" placeholder="Registration Number">
-        </div>
+    <div class="form-group">
+      <label>Registration Number</label>
+      <input type="text" name="reg" [(ngModel)]="carData.regNumber" placeholder="Registration Number">
+    </div>
 
-      </div>
+  </div>
 
-      <button class="submit-btn">SUBMIT</button>
-    </form>
+  <button type="button" (click)="onSubmit()" class="submit-btn">SUBMIT</button>
+</form>
   </div>
 
   <!-- HOW IT WORKS -->

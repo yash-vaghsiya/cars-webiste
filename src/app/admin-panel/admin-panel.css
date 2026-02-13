@@ -192,3 +192,26 @@ table {
   font-weight: bold;
   color: #555;
 }
+
+
+
+
+
+/* 
+.admin-component {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 260px; /* Adjust this to match your Sidebar width *
+  background-color: #f4f7f6;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 70px; /* Adjusted for collapsed mobile sidebar 
+  }
+} */

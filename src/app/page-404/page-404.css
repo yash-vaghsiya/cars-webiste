@@ -1,13 +1,29 @@
-h1{
+* {
+    /* background-color: red; */
+    height: 50vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+h1 {
     display: flex;
     color: red;
     justify-content: center;
-margin-top: 20%;
-font-size: 50px;
+    align-items: center;
+    margin-top: 390px;
+    font-size: 50px;
 }
 
- p{
+p {
     display: flex;
     font-size: 20px;
+    align-items: center;
     justify-content: center;
 }

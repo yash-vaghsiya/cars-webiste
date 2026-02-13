@@ -7,12 +7,13 @@ export interface Car {
   id: number;
   name: string;
   category: string;
-  price: string;
+  price: string | number;
   power: string;
   speed: string;
   fuel: string;
   year: string;
   km: string;
+  drivetrain: string;
   color: string;
   transmission: string;
   groundClearance: string;

@@ -1,0 +1,159 @@
+/* --- LAYOUT FIX FOR LEFT NAVBAR --- */
+.admin-container {
+    margin-left: 260px; 
+    padding: 30px;
+    background-color: #f4f7f6;
+    min-height: 100vh;
+    width: calc(100% - 260px); 
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* --- TABLE CARD SECTION --- */
+.table-section {
+    background: #fff;
+    padding: 25px;
+    margin-top:70px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f4f7f6;
+    padding-bottom: 15px;
+}
+
+/* --- TABLE DESIGN --- */
+.table-wrapper {
+    overflow-x: auto; 
+    width: 100%;
+}
+
+table { 
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px; 
+}
+
+th {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    font-size: 13px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+/* --- TEXT & TAG STYLING --- */
+.car-info strong {
+    display: block;
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.car-info span {
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+.category-tag {
+    background: #edf2f7;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #4a5568;
+}
+
+/* --- BADGES --- */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.badge.available {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge.sold {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* --- ACTION BUTTONS --- */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-buttons button {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+.btn-status { background: #f39c12; }
+.btn-delete { background: #e74c3c; }
+
+button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* --- EMPTY STATE --- */
+.password-screen {
+    text-align: center;
+    padding: 60px 20px;
+    border: 2px dashed #dcdde1;
+    border-radius: 12px;
+    margin: 20px 0;
+    color: #7f8c8d;
+}
+
+.lock-icon {
+    font-size: 3rem;
+    color: #bdc3c7;
+    margin-bottom: 15px;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 992px) {
+    .admin-container {
+        margin-left: 80px; 
+        width: calc(100% - 80px);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+
+

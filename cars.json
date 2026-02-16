@@ -359,6 +359,32 @@
       "description": "luxury electric compact SUV produced from 2019 to 2023, combining premium comfort with a ~450 km range",
       "features": "80 kWh battery, dual motors, 4MATIC all-wheel drive, and an output of 402-408 hp with 760-765 Nm of torque.",
       "status": "Available"
+    },
+    {
+      "id": "18",
+      "name": "Porsche 911 Carrera s",
+      "category": "sports",
+      "price": "₹47.46 Lakh",
+      "image": "https://wallpaperaccess.com/full/3581143.jpg",
+      "power": "444 hp",
+      "speed": "308 km/h",
+      "engine": "3-litre twin-turbo six-cylinder boxer engine ",
+      "torque": "530 Nm",
+      "fuel": "Petrol",
+      "transmission": "(PDK) dual-clutch transmission ",
+      "groundClearance": "125 mm",
+      "bootSpace": "135 L",
+      "km": 25432,
+      "year": 2020,
+      "mileage": "10 km",
+      "drivetrain": "rwd",
+      "seats": 4,
+      "color": "Red",
+      "owners": 1,
+      "warranty": "3 year ",
+      "description": "The Porsche 911 Carrera S is a high-performance rear-engine sports car featuring a 3.0-liter twin-turbo flat-6 engine producing approximately 443–480 horsepower, depending on the variant",
+      "features": "3.0-liter twin-turbo flat-six engine producing 444 bhp and 530 Nm of torque",
+      "status": "Available"
     }
   ],
   "appointments": [
@@ -371,6 +397,47 @@
       "date": "2026-02-12",
       "message": "i comin on the sharp 12'o clock",
       "status": "Approved"
+    },
+    {
+      "id": "c65b",
+      "name": "yash vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "phone": "8849669921",
+      "service": "Car Service",
+      "date": "2026-02-20",
+      "time": "02:30",
+      "message": "yashy yahs yans ahu  h ga df tya sud fdgg atsd gy as gyafds   yfas dyf ",
+      "status": "Approved"
+    },
+    {
+      "id": "NaN",
+      "name": "yash vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "mobile": "8849669921",
+      "state": "Gujarat",
+      "city": "Ahmedabad",
+      "brand": "BMW",
+      "model": "bmw m4",
+      "variant": "sport",
+      "year": "2022",
+      "km": 24445646546,
+      "ownership": "First Owner",
+      "regNumber": "GJ27 01 BM 0001"
+    },
+    {
+      "id": "1",
+      "name": "yash vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "mobile": "8849669921",
+      "state": "Gujarat",
+      "city": "Ahmedabad",
+      "brand": "BMW",
+      "model": "bmw m4",
+      "variant": "sport",
+      "year": "2024",
+      "km": 164555,
+      "ownership": "Second Owner",
+      "regNumber": "GJ27 01 BM 0001"
     }
   ],
   "users": [
@@ -391,29 +458,52 @@
   ],
   "inquiries": [
     {
-      "id": "b34b",
-      "name": "yash",
-      "email": "yqahs@gmail.com",
-      "mobile": "8849669921",
+      "id": "1",
+      "name": "yash vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "mobile": "",
       "state": "Gujarat",
       "city": "Ahmedabad",
       "brand": "BMW",
       "model": "bmw m4",
       "variant": "sport",
       "year": "2023",
-      "km": 365464,
-      "ownership": "Second Owner",
+      "km": 21,
+      "ownership": "First Owner",
+      "regNumber": "GJ27 01 BM 0001"
+    },
+    {
+      "id": "2",
+      "name": "yash vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "mobile": "8849669921",
+      "state": "Gujarat",
+      "city": "Ahmedabad",
+      "brand": "BMW",
+      "model": "bmw m4",
+      "variant": "sport",
+      "year": "2024",
+      "km": 52,
+      "ownership": "First Owner",
       "regNumber": "GJ27 01 BM 0001"
     }
   ],
   "messages": [
     {
-      "id": "ae7d",
+      "id": "1",
       "firstName": "yash",
       "lastName": "vaghasiya",
       "email": "yash@gmail.com",
       "subject": "deails",
       "message": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error recusandae vel tempora amet, ea at totam, laborum ad dignissimos esse eos quaerat natus eaque, nesciunt aliquid? Dolorum temporibus illum placeat.</p>\n"
+    },
+    {
+      "id": "3",
+      "firstName": "yash",
+      "lastName": "vaghasiya",
+      "email": "yashvaghasiya2006@gmail.com",
+      "subject": "details",
+      "message": "sertrdyfugihojkjhlkvch"
     }
   ]
 }

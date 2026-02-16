@@ -70,7 +70,7 @@ import { CarDetails } from '../car-details/car-details'; // Import correctly
 import { map } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class AdminService {
-private baseUrl = 'http://localhost:3000'; 
+private baseUrl = 'http://localhost:3000/collection'; 
 
   constructor(private http: HttpClient) {}
 
@@ -103,7 +103,7 @@ private baseUrl = 'http://localhost:3000';
   clearEditData() {
     this.carToEdit = null;
   }
-private apiUrl = 'http://localhost:3000'; 
+private apiUrl = 'http://localhost:3000/appointments'; 
 
 addAppointment(appointment: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/appointments`, appointment);
@@ -144,10 +144,6 @@ getAllInquiries(): Observable<any[]> {
     return this.http.post(this.apilink, data);
   }
 
-  // getAllInquiries(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.apiUrl);
-  // }
-
   deleteInquiry(id: any): Observable<any> {
     return this.http.delete(`${this.apilink}/${id}`);
   }
@@ -168,5 +164,6 @@ getMessages(): Observable<any[]> {
 deleteMessage(id: any): Observable<any> {
   return this.http.delete(`${this.messagesUrl}/${id}`);
 }
+
 }
 

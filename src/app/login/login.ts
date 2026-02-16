@@ -205,7 +205,7 @@ export class Login {
 //       error: (err: any) => {
 //         this.errorMessage = 'Could not create account. Try again.';
 //       }
-//     });
+//     });  
 //   }
 
 //   onPasswordReset() {

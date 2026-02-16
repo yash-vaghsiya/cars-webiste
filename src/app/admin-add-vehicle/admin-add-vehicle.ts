@@ -52,35 +52,6 @@ carForm!: FormGroup;
     });
   }
 
-  // onSubmit() {
-  //   if (this.carForm.invalid) {
-  //     alert('Please fill all required fields.');
-  //     return;
-  //   }
-
-  //   const formData = this.carForm.value;
-
-  //   if (this.isEditing && this.currentCarId) {
-  //     const updatedCar = { ...this.originalCarData, ...formData };
-  //     this.adminService.updateCar(this.currentCarId, updatedCar).subscribe({
-  //       next: () => {
-  //         alert('Vehicle updated successfully!');
-  //         this.resetForm();
-  //       },
-  //       error: (err) => alert("Update failed: " + err)
-  //     });
-  //   } else {
-  //     const newCar = { ...formData, status: 'Available' };
-  //     this.adminService.addCar(newCar).subscribe({
-  //       next: () => {
-  //         alert('Vehicle added to showroom!');
-  //         this.carForm.reset();
-  //       },
-  //       error: (err) => alert("Addition failed: " + err)
-  //     });
-  //   }
-  // }
-
   onSubmit() {
   if (this.carForm.invalid) {
     alert('Please fill all required fields.');

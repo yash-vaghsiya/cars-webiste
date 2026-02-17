@@ -77,11 +77,12 @@
   import { Component } from '@angular/core';
   import { AdminService } from '../service/admin-service';
   import { FormsModule } from '@angular/forms';
+import { Footer } from "../footer/footer";
 
   @Component({
     selector: 'app-sell-car',
     standalone: true,
-    imports: [FormsModule],
+    imports: [FormsModule, Footer],
     templateUrl: './sell-car.html',
     styleUrl: './sell-car.css',
   })

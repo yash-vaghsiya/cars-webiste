@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Carsdata, Car } from '../service/carsdata';
 import { take } from 'rxjs/operators';
+import { Footer } from "../footer/footer";
 
 export interface CarDetailsView {
   id?: number; 
@@ -34,7 +35,7 @@ export interface CarDetailsView {
 @Component({
   selector: 'app-car-details',
   standalone: true, // Recommended for modern Angular
-  imports: [CommonModule],
+  imports: [CommonModule, Footer],
   templateUrl: './car-details.html',
   styleUrl: './car-details.css',
 })

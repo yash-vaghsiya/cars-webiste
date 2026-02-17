@@ -18,7 +18,7 @@
       <button (click)="unlockInventory()" class="btn-primary">Unlock System</button>
     </div> -->
 
-    <!-- <div *ngIf="isUnlocked" class="table-wrapper"> -->
+    <div *ngIf="isUnlocked" class="table-wrapper">
       <table *ngIf="cars().length > 0">
         <thead>
           <tr>
@@ -64,6 +64,6 @@
       <div *ngIf="cars().length === 0" class="empty-state">
         <p>No vehicles found in the showroom database.</p>
       </div>
-    <!-- </div> -->
+    </div>
   <!-- </section> -->
 </div>

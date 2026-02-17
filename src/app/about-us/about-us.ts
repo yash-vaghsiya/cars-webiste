@@ -1,10 +1,11 @@
 import { DecimalPipe, CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { animationFrameScheduler, interval, map, takeWhile, tap } from 'rxjs';
+import { Footer } from "../footer/footer";
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [DecimalPipe,CommonModule ], // Import the new ticker here
+  imports: [DecimalPipe, CommonModule, Footer], // Import the new ticker here
   templateUrl: './about-us.html',
   styleUrl: './about-us.css',
 })

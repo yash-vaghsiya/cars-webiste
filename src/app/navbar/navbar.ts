@@ -18,10 +18,13 @@ export class Navbar {
   }
 
   
+// isAdmin(): boolean {
+//     return localStorage.getItem('email') === 'admin@gmail.com';
+//   }
 isAdmin(): boolean {
-    return localStorage.getItem('email') === 'admin@gmail.com';
-  }
-
+  // Directly check the email stored in localStorage
+  return localStorage.getItem('email') === 'admin@gmail.com';
+}
   logout(): void {
      this.auth.logout();
      this.router.navigate(['/Login']);

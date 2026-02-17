@@ -16,6 +16,7 @@ import { AdminAddVehicle } from './admin-add-vehicle/admin-add-vehicle';
 import { AdminSellCarsection } from './admin-sell-carsection/admin-sell-carsection';
 import { AdminSendMessage } from './admin-send-message/admin-send-message';
 import { AuthGuard } from './auth-guard';
+import { Footer } from './footer/footer';
 
 export const routes: Routes = [
     { path: '', component: Login },
@@ -33,6 +34,7 @@ export const routes: Routes = [
     { path:'admin-add-vehicle', component: AdminAddVehicle, canActivate: [AuthGuard]},
     { path:'admin-sell-carsection', component: AdminSellCarsection, canActivate: [AuthGuard]},
     { path:'admin-send-message', component: AdminSendMessage, canActivate: [AuthGuard]},
+    { path:'Footer', component: Footer, canActivate: [AuthGuard]},
     { path: '**', component: Page404} 
 ];
 

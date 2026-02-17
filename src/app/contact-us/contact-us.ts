@@ -42,11 +42,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AdminService } from '../service/admin-service';
 import { CommonModule } from '@angular/common';
+import { Footer } from "../footer/footer";
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Footer],
   templateUrl: './contact-us.html',
   styleUrl: './contact-us.css',
 })

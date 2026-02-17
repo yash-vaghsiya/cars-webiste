@@ -54,10 +54,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AdminService } from '../service/admin-service';
+import { Footer } from "../footer/footer";
 
 @Component({
   selector: 'app-book-appointment',
-  imports: [CommonModule , FormsModule], 
+  imports: [CommonModule, FormsModule, Footer], 
   templateUrl: './book-appointment.html',
   styleUrl: './book-appointment.css',
 })

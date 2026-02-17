@@ -62,11 +62,12 @@ import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Carsdata, Car } from '../service/carsdata';
+import { Footer } from "../footer/footer";
 
 @Component({
   selector: 'app-Collection',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Footer],
   templateUrl: './collection.html',
   styleUrls: ['./collection.css'],
 })

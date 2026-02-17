@@ -1,0 +1,133 @@
+/* ==============================
+   PREMIUM DARK FOOTER
+============================== */
+
+.footer{
+  background:linear-gradient(to right,#0f172a,#0b0f14);
+  color:#e5e7eb;
+  padding:80px 8% 20px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  font-family:'Poppins',sans-serif;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:50px;
+  margin-bottom:50px;
+}
+
+/* BRAND */
+.footer-brand h2{
+  font-size:30px;
+  font-weight:600;
+}
+
+.footer-brand span{
+  color:#d4af37;
+}
+
+.footer-brand p{
+  color:#9ca3af;
+  margin:15px 0 25px;
+  line-height:1.7;
+}
+
+/* SOCIAL */
+.social-icons a{
+  display:inline-block;
+  margin-right:12px;
+  width:40px;
+  height:40px;
+  background:#1f2937;
+  text-align:center;
+  line-height:40px;
+  border-radius:50%;
+  color:#d4af37;
+  transition:0.4s ease;
+  text-decoration:none;
+  font-size:18px;
+}
+
+.social-icons a:hover{
+  background:#d4af37;
+  color:#000;
+  transform:translateY(-6px);
+  box-shadow:0 0 15px #d4af37;
+}
+
+/* LINKS */
+.footer-links h3,
+.footer-contact h3{
+  margin-bottom:20px;
+  font-weight:600;
+  font-size:18px;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-links li{
+  margin-bottom:12px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:#9ca3af;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  color:#d4af37;
+  padding-left:6px;
+}
+
+/* CONTACT */
+.footer-contact p{
+  font-size:14px;
+  color:#9ca3af;
+  margin-bottom:8px;
+}
+
+/* NEWSLETTER */
+.newsletter{
+  display:flex;
+  margin-top:15px;
+}
+
+.newsletter input{
+  flex:1;
+  padding:12px;
+  border:none;
+  background:#1f2937;
+  color:#fff;
+  border-radius:6px 0 0 6px;
+  outline:none;
+}
+
+.newsletter button{
+  padding:12px 20px;
+  border:none;
+  background:#d4af37;
+  color:#000;
+  font-weight:600;
+  border-radius:0 6px 6px 0;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.newsletter button:hover{
+  background:#facc15;
+  box-shadow:0 0 15px #d4af37;
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  font-size:14px;
+  color:#6b7280;
+}

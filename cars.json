@@ -407,53 +407,30 @@
       "date": "2026-02-20",
       "time": "02:30",
       "message": "yashy yahs yans ahu  h ga df tya sud fdgg atsd gy as gyafds   yfas dyf ",
-      "status": "Approved"
-    },
-    {
-      "id": "NaN",
-      "name": "yash vaghasiya",
-      "email": "yashvaghasiya2006@gmail.com",
-      "mobile": "8849669921",
-      "state": "Gujarat",
-      "city": "Ahmedabad",
-      "brand": "BMW",
-      "model": "bmw m4",
-      "variant": "sport",
-      "year": "2022",
-      "km": 24445646546,
-      "ownership": "First Owner",
-      "regNumber": "GJ27 01 BM 0001"
-    },
-    {
-      "id": "1",
-      "name": "yash vaghasiya",
-      "email": "yashvaghasiya2006@gmail.com",
-      "mobile": "8849669921",
-      "state": "Gujarat",
-      "city": "Ahmedabad",
-      "brand": "BMW",
-      "model": "bmw m4",
-      "variant": "sport",
-      "year": "2024",
-      "km": 164555,
-      "ownership": "Second Owner",
-      "regNumber": "GJ27 01 BM 0001"
+      "status": "Rejected"
     }
   ],
   "users": [
     {
-      "id": "1",
+      "id": "f229",
       "name": "yash vaghasiya",
       "email": "yashvaghasiya2006@gmail.com",
-      "password": "yash5878",
-      "phone": "8849669921"
+      "phone": "8849669921",
+      "password": "yash5878"
     },
     {
-      "id": "ec0b",
+      "id": "c097",
       "name": "yash vaghasiya",
-      "email": "gvaghasiya27@gmail.com",
-      "password": "58785878",
-      "phone": "88496 69921"
+      "email": "yash@gmail.com",
+      "phone": "9879050815",
+      "password": "yash"
+    },
+    {
+      "id": "1ed1",
+      "name": "yash",
+      "email": "admin@gmail.com",
+      "phone": "8849669921",
+      "password": "admin123"
     }
   ],
   "inquiries": [

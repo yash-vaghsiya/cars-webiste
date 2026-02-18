@@ -129,4 +129,17 @@ export class CarDetails implements OnInit {
       bootSpace: car.bootSpace || this.defaultDetails.bootSpace,
     } as CarDetailsView;
   }
+
+  
+  phoneNumber: string = '+91 88496 69921'; // change to your number
+
+  callNow() {
+    window.location.href = `tel:+${this.phoneNumber}`;
+  }
+
+  openWhatsApp() {
+    const message = "Hi, I'm interested in booking this car.";
+    const url = `https://wa.me/${this.phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
 }

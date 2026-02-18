@@ -43,7 +43,7 @@
 //       localStorage.setItem('email', this.email);
 //       this.errorMessage = '';
 //       this.authService.login(this.email, this.password); // Still call service to set state
-//       this.router.navigate(['/Home']);
+//       this.router.navigate(['/Home']);.2
 //     }
 //     else if (this.email === 'user@gmail.com' && this.password === 'user123') {
 //       // ✅ Standard User Login

@@ -412,6 +412,13 @@
   ],
   "users": [
     {
+      "id": "1ed1",
+      "name": "yash",
+      "email": "admin@gmail.com",
+      "phone": "8849669921",
+      "password": "admin123"
+    },
+    {
       "id": "f229",
       "name": "yash vaghasiya",
       "email": "yashvaghasiya2006@gmail.com",
@@ -426,11 +433,11 @@
       "password": "yash"
     },
     {
-      "id": "1ed1",
-      "name": "yash",
-      "email": "admin@gmail.com",
-      "phone": "8849669921",
-      "password": "admin123"
+      "id": "b5d5",
+      "name": "jahil",
+      "email": "jahil@gmail.com",
+      "phone": "4152637890",
+      "password": "jahil123"
     }
   ],
   "inquiries": [

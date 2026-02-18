@@ -42,3 +42,68 @@
    
     background-color: transparent;
 }
+
+
+/* --- Desktop: Hide the 3 lines --- */
+#menu-toggle, .hamburger {
+    display: none;
+}
+
+/* --- Mobile: Screen smaller than 768px --- */
+@media screen and (max-width: 768px) {
+    /* Show the 3 lines (Hamburger) */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        margin-right: 20px;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* Transform Navbar into a Mobile Menu */
+    .ul-tag {
+        position: fixed;
+        top: 70px;
+        left: -100%; /* Hidden off-screen by default */
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        height: 100vh;
+        margin-left: 0; /* Overrides your 479px margin */
+        gap: 30px;
+        padding-top: 50px;
+        transition: 0.5s;
+        align-items: center;
+    }
+
+    /* When checkbox is clicked, show the menu */
+    #menu-toggle:checked ~ .ul-tag {
+        left: 0;
+    }
+
+    /* Optional: Animate hamburger into an 'X' when clicked */
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Hide the checkbox input itself */
+    #menu-toggle {
+        display: none;
+    }
+}

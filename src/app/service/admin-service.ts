@@ -105,8 +105,7 @@ export class AdminService {
  // ===============================================================================================================================
 
   private userapi = 'http://localhost:3000/users';
-
-  // constructor(private http: HttpClient) {}
+// private userapi = 'http://192.168.1.10:3000/users';
 
   // ✅ REGISTER USER
   register(user: any): Observable<any> {

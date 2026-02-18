@@ -195,3 +195,127 @@ button:hover { opacity: 0.8; }
     width: 100%;
   }
 }
+
+/* ============================================================
+   ADMIN MANAGEMENT TABLE RESPONSIVE ENGINE
+   ============================================================ */
+
+/* --- 1. Tablet & Medium Screens (Under 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .admin-container {
+        margin-left: 0 !important; /* Neutralize fixed sidebar margins */
+        width: 100% !important;
+        padding: 80px 20px 20px !important; /* Space for top header */
+    }
+
+    .search-box {
+        width: 250px;
+    }
+}
+
+/* --- 2. Mobile Layout Transformation (Under 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Auto-hide Sidebar Names/Dots (Universal Logic) */
+    .nav-item span, .sidebar-header h1, .subtitle, .nav-divider, .dot {
+        display: none !important;
+    }
+
+    .header-flex {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px;
+    }
+
+    .search-box {
+        width: 100% !important; /* Search bar fills screen width */
+        order: 2; /* Puts search bar below the title */
+    }
+
+    .count-badge {
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    /* Table Handling: Prevents Squishing */
+    .table-section {
+        padding: 15px;
+        margin-top: 20px;
+        overflow-x: auto; /* Enable smooth horizontal swiping */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 700px; /* Ensures table content remains readable */
+    }
+
+    th, td {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    /* Status Badges */
+    .badge {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+}
+
+/* --- 3. Extra Small Phones (Under 480px) --- */
+@media screen and (max-width: 480px) {
+    .admin-container {
+        padding: 70px 10px 80px !important; /* Extra bottom padding for mobile nav */
+    }
+
+    .header-flex h2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    /* Action Buttons: Vertical stack for easy tapping */
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .action-buttons button {
+        width: 100%;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .no-data {
+        padding: 30px 10px;
+    }
+
+    .no-data i {
+        font-size: 2rem;
+    }
+}
+
+/* --- 4. Sidebar to Bottom Nav Conversion --- */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100% !important;
+        height: 60px !important;
+        top: auto !important;
+        bottom: 0 !important;
+        flex-direction: row !important;
+        z-index: 2000;
+    }
+
+    .sidebar-nav {
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        width: 100%;
+    }
+
+    .nav-item {
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .nav-item i {
+        font-size: 1.5rem !important;
+        margin: 0 !important;
+    }
+}

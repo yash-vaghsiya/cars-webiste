@@ -237,3 +237,98 @@ button:hover {
         flex-direction: column;
     }
 }
+
+/* ============================================================
+   ULTRA-LUXURY CONTACT RESPONSIVE (All Devices)
+   ============================================================ */
+
+/* --- 1. Large Tablets & Small Laptops (1024px to 1200px) --- */
+@media screen and (max-width: 1100px) {
+    .contact-info, .contact-form {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 30px;
+    }
+    
+    .contact-container {
+        gap: 20px;
+        padding: 0 10px;
+    }
+}
+
+/* --- 2. Standard Tablets & iPads (768px to 1023px) --- */
+@media screen and (max-width: 992px) {
+    .contact-wrapper {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr !important; /* Forces vertical stack */
+        margin-top: 40px;
+    }
+
+    .contact-info {
+        height: auto !important; /* Fixes the 89% height issue */
+        margin-bottom: 20px;
+    }
+
+    .contact-form {
+        margin-left: 0 !important;
+    }
+}
+
+/* --- 3. Small Mobile Devices (480px and below) --- */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .contact-info, .contact-form {
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+
+    .contact-info h2, .contact-form h2 {
+        font-size: 1.4rem;
+    }
+
+    .input-group {
+        flex-direction: column; /* Stacks Name/Email inputs */
+        gap: 0;
+    }
+
+    input, textarea {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.9rem;
+        border-radius: 12px; /* Matching input style */
+    }
+
+    .map-box iframe {
+        height: 200px;
+    }
+
+    .footer-note {
+        font-size: 0.85rem;
+    }
+}
+
+/* --- 4. Special Fix for iOS / Safari background --- */
+@media screen and (max-width: 768px) {
+    .contact-wrapper {
+        /* Disables fixed background on mobile for better performance */
+        background-attachment: scroll !important;
+    }
+}

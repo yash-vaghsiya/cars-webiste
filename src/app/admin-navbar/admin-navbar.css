@@ -157,3 +157,150 @@ height: calc(100vh - 70px);
   background: #334155;
   border-radius: 10px;
 }
+
+
+
+/* ============================================================
+   THE PERFECT RESPONSIVE ENGINE (ALL-IN-ONE FIX)
+   ============================================================ */
+
+/* --- 1. GLOBAL OVERRIDES --- */
+html, body {
+    overflow-x: hidden; /* Stops horizontal shaking */
+    width: 100%;
+}
+
+/* --- 2. THE NAVBAR & SIDEBAR FIX (Names & Dots Removal) --- */
+@media screen and (max-width: 992px) {
+    /* Auto-Remove Names, Subtitles, and Decorative Dots/Dividers */
+    .nav-item span, 
+    .sidebar-header h1, 
+    .subtitle, 
+    .nav-divider, 
+    .stat-divider, 
+    .dot,
+    .luxury-line {
+        display: none !important;
+    }
+
+    /* Remove Fixed Margins that push content off-screen */
+    .ul-tag, .filters, .admin-container, .contact-info, .contact-form, .auth-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Sidebar to Icon-Only Strip */
+    .sidebar {
+        width: 70px !important;
+        top: 60px;
+    }
+
+    .nav-item {
+        justify-content: center !important;
+        padding: 20px 0 !important;
+        border: none !important;
+    }
+
+    .nav-item i {
+        margin: 0 !important;
+        font-size: 1.6rem !important;
+    }
+}
+
+/* --- 3. MOBILE TRANSFORMATION (Under 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Top Header */
+    .heder {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    /* Transform Sidebar to Bottom App Bar */
+    .sidebar {
+        width: 100% !important;
+        height: 60px !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0;
+        flex-direction: row !important;
+        background: #1e293b;
+        z-index: 2000;
+    }
+
+    .sidebar-header { display: none !important; }
+
+    .sidebar-nav {
+        flex-direction: row !important;
+        display: flex !important;
+        width: 100%;
+        justify-content: space-around !important;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    /* Grid Stacking for Collection, About, Contact, and Forms */
+    .collection, 
+    .car-form-grid, 
+    .form-grid, 
+    .why-grid, 
+    .steps-container, 
+    .about-grid, 
+    .contact-container {
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    /* Center Content & Remove Fixed Heights */
+    .admin-container {
+        padding: 20px 15px 80px !important; /* Extra padding for bottom bar */
+    }
+
+    .auth-card, .form-card, .contact-info, .contact-form {
+        height: auto !important;
+        padding: 25px 15px !important;
+    }
+}
+
+/* --- 4. TEXT & BUTTON OPTIMIZATION (Under 480px) --- */
+@media screen and (max-width: 480px) {
+    /* Cinematic Typography Scaling */
+    h1, .hero-content h1, .sell-car-page h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+    }
+
+    .content {
+        margin-top: 80px !important;
+        text-align: center;
+    }
+
+    /* Full-Width Touch-Friendly Buttons */
+    .actions, .form-actions, .social-login {
+        flex-direction: column !important;
+        gap: 10px;
+    }
+
+    button, .btn-primary, .btn-book, .btn-whatsapp, .btn-view {
+        width: 100% !important;
+        margin: 0 !important;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    /* Better Form Inputs on Mobile */
+    input, select, textarea {
+        font-size: 16px !important; /* Fixes iOS zoom glitch */
+        background: rgba(255, 255, 255, 0.05) !important;
+    }
+}
+
+/* --- 5. SMOOTH PERFORMANCE --- */
+@media screen and (max-width: 1024px) {
+    /* Disable laggy fixed backgrounds on mobile */
+    .sell-car-page, .contact-wrapper, .about-hero, .customer-review {
+        background-attachment: scroll !important;
+    }
+}

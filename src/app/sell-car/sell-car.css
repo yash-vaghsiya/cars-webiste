@@ -299,3 +299,117 @@ select:focus {
     font-size: 34px;
   }
 }
+
+/* ============================================================
+   ULTRA-RESPONSIVE ADAPTATION (All Devices)
+   ============================================================ */
+
+/* --- 1. Large Tablets & Small Laptops (up to 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .form-card {
+        max-width: 90%;
+    }
+    
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        padding: 0 40px;
+        gap: 30px;
+    }
+}
+
+/* --- 2. Standard Tablets & Mobile (up to 768px) --- */
+@media screen and (max-width: 768px) {
+    .sell-car-page {
+        padding: 80px 15px 40px;
+        background-attachment: scroll; /* Better performance on mobile */
+    }
+
+    .sell-car-page h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr !important; /* Force single column */
+        gap: 20px;
+    }
+
+    .card-header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    form {
+        padding: 30px 20px;
+    }
+
+    .how-it-works {
+        margin-top: 80px;
+    }
+
+    .how-it-works h2 {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr !important; /* Stack steps */
+        padding: 0 20px;
+    }
+
+    .step-card {
+        padding: 30px 20px;
+    }
+}
+
+/* --- 3. Extra Small Phones (up to 480px) --- */
+@media screen and (max-width: 480px) {
+    .sell-car-page h1 {
+        font-size: 26px;
+    }
+
+    .card-header h3 {
+        font-size: 20px;
+    }
+
+    input, select {
+        height: 48px;
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        height: 52px;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        margin-top: 30px;
+    }
+
+    .icon-box {
+        width: 60px;
+        height: 60px;
+    }
+
+    .icon-box i {
+        font-size: 26px;
+    }
+
+    .form-group::after {
+        display: none; /* Clean up UI on very small screens */
+    }
+}
+
+/* --- 4. Landscape Orientation Fix --- */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .sell-car-page {
+        padding-top: 60px;
+    }
+    
+    .form-card {
+        margin-top: 20px;
+    }
+}

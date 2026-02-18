@@ -82,3 +82,56 @@ header {
         transform: translateY(0);
     }
 }
+
+
+/* Tablet and Small Desktop */
+@media screen and (max-width: 1024px) {
+    .content {
+        margin-left: 50px; /* Reducing the large gap */
+        margin-top: 100px;
+        width: 90%;
+    }
+    
+    .container {
+        width: 90%; /* Allows the 1000px container to shrink */
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 600px) {
+    header {
+        height: auto; /* Prevents content from clipping on small screens */
+        min-height: 80vh;
+        padding-bottom: 50px;
+        align-items: center; /* Centers content for better mobile aesthetic */
+        text-align: center;
+    }
+
+    .content {
+        margin-left: 0; /* Remove side margin */
+        margin-top: 60px;
+        padding: 0 20px;
+        font-size: 1.2rem;
+    }
+
+    .book-btn {
+        margin-left: 0;
+        display: inline-block;
+        margin-top: 20px;
+        width: 80%; /* Makes button easier to tap on mobile */
+    }
+
+    .footer {
+        flex-direction: column; /* Stack footer items vertically */
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Fix for very small screens or landscape phones */
+@media screen and (max-height: 500px) {
+    header {
+        height: auto;
+    }
+}

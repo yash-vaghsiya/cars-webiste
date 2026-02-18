@@ -139,3 +139,137 @@ button {
     width: 100%;
   }
 }
+
+/* ============================================================
+   THE MASTER RESPONSIVE ENGINE (Universal Fix)
+   ============================================================ */
+
+/* --- 1. GLOBAL RESET FOR RESPONSIVENESS --- */
+html, body {
+    overflow-x: hidden; /* Prevents horizontal scroll bugs */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- 2. LARGE TABLETS & LAPTOPS (Under 1200px) --- */
+@media screen and (max-width: 1200px) {
+    /* Neutralize large fixed gaps from previous snippets */
+    .ul-tag, .filters, .contact-info, .contact-form, .auth-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .admin-container {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 40px 20px !important;
+    }
+
+    .collection {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* --- 3. MOBILE & TABLET (Under 768px) --- */
+@media screen and (max-width: 768px) {
+    /* HEADER & NAVIGATION */
+    .heder {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 24px !important;
+        margin-left: 0 !important;
+    }
+
+    /* Transition Navbar to Sidebar/Mobile Menu */
+    .ul-tag {
+        position: fixed;
+        top: 60px;
+        left: -100%; /* Hidden */
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* GRID SYSTEMS (Car Collection & Why Us) */
+    .collection, .why-grid, .form-grid, .steps-container, .about-grid, .car-form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* AUTH & CONTACT SECTIONS */
+    .main-container, .contact-container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        display: none !important; /* Hide decorative images on mobile */
+    }
+
+    .auth-card, .form-card, .contact-info, .contact-form {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 25px 15px !important;
+        border-radius: 12px !important;
+    }
+
+    /* LUXURY STATS (About Page) */
+    .top-stats, .luxury-style {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .stat-divider {
+        width: 50px;
+        height: 1px;
+        margin: 5px auto;
+    }
+}
+
+/* --- 4. SMALL SMARTPHONES (Under 480px) --- */
+@media screen and (max-width: 480px) {
+    /* Typography scaling */
+    h1 { font-size: 28px !important; }
+    h2 { font-size: 22px !important; }
+    
+    .hero-content h1 { font-size: 1.8rem !important; }
+
+    /* Button stacking */
+    .actions, .form-options, .form-actions, .social-login {
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    .btn-primary, .btn-book, .btn-view, .btn-whatsapp, button {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 10px;
+    }
+
+    /* Forms */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+    }
+
+    /* Hero Padding */
+    .content {
+        margin: 80px 10px 0 !important;
+        font-size: 1.1rem;
+    }
+}
+
+/* --- 5. PERFORMANCE FIXES --- */
+@media screen and (max-width: 1024px) {
+    /* Disable parallax/fixed backgrounds on mobile for smoother scrolling */
+    .sell-car-page, .about-hero, .customer-review, .contact-wrapper {
+        background-attachment: scroll !important;
+    }
+}

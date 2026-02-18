@@ -79,3 +79,125 @@ td {
     margin-left: 80px;
   }
 }
+
+/* ============================================================
+   ADMIN MESSAGES RESPONSIVE ENGINE
+   ============================================================ */
+
+/* --- 1. Tablet & Medium Screens (Under 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .admin-container {
+        margin-left: 0 !important; /* Neutralize the 260px offset */
+        width: 100% !important;
+        padding: 80px 15px 20px !important;
+    }
+
+    /* Auto-Remove Names, Dots, and Dividers from Navigation */
+    .nav-item span, 
+    .sidebar-header h1, 
+    .subtitle, 
+    .nav-divider, 
+    .dot {
+        display: none !important;
+    }
+
+    .msg-body {
+        max-width: 250px; /* Shorten message width to fit tablet screens */
+    }
+}
+
+/* --- 2. Mobile Layout Transformation (Under 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Transform Sidebar into a Bottom Navbar */
+    .sidebar {
+        width: 100% !important;
+        height: 60px !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        flex-direction: row !important;
+        z-index: 2000;
+        background: #1e293b;
+    }
+
+    .sidebar-nav {
+        flex-direction: row !important;
+        display: flex !important;
+        width: 100%;
+        justify-content: space-around !important;
+        padding: 0;
+    }
+
+    .nav-item {
+        border: none !important;
+        padding: 0 !important;
+        justify-content: center;
+    }
+
+    .nav-item i {
+        font-size: 1.5rem !important;
+        margin: 0 !important;
+    }
+
+    /* Container adjustments for Bottom Nav */
+    .admin-container {
+        padding-bottom: 80px !important; 
+    }
+
+    /* Table Mobile Swiping */
+    .message-table-section, .table-section {
+        padding: 15px;
+        margin-top: 20px;
+        overflow-x: auto; /* Enable smooth horizontal swiping */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 650px; /* Prevents text from being squashed */
+    }
+
+    td, th {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+}
+
+/* --- 3. Extra Small Phones (Under 480px) --- */
+@media screen and (max-width: 480px) {
+    .customer-info strong {
+        font-size: 13px;
+    }
+
+    .customer-info small {
+        font-size: 11px;
+    }
+
+    .msg-body {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    /* Delete Button scaling for mobile thumbs */
+    .btn-delete {
+        width: 100%;
+        padding: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    /* Table header compacting */
+    th {
+        padding: 10px 5px;
+        font-size: 10px;
+    }
+}
+
+/* --- 4. Landscape Mode Fix --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .admin-container {
+        padding-top: 15px !important;
+    }
+    .sidebar {
+        height: 50px !important;
+    }
+}

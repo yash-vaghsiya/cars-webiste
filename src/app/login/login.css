@@ -455,3 +455,82 @@ height: 35px;
         min-width: 0;
     }
 }
+
+
+/* --- Supplemental Responsive CSS --- */
+
+@media screen and (max-width: 1200px) {
+    .auth-card {
+        margin-right: 0; /* Removes the large right margin on medium screens */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+    .form-section {
+        min-width: 100%;
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .image-section {
+        display: none; /* Already in your code, but ensures it stays hidden */
+    }
+
+    .auth-card {
+        width: 95%;
+        max-width: 450px;
+        margin-right: 0;
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .brand-info h1 {
+        font-size: 20px;
+    }
+
+    .auth-card {
+        border: none; /* Clean up look for very small screens */
+        background: transparent;
+        padding: 10px;
+    }
+
+    .input-field {
+        height: 45px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .social-login {
+        flex-direction: column;
+    }
+
+    .social-btn {
+        width: 100%;
+    }
+
+    .close-btn {
+        top: 15px;
+        left: 15px;
+    }
+}
+
+/* Fix for landscape phones or short screens */
+@media screen and (max-height: 700px) and (min-width: 901px) {
+    .form-section {
+        overflow-y: auto;
+        justify-content: flex-start;
+        padding-top: 80px;
+    }
+}

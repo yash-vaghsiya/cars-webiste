@@ -404,3 +404,140 @@
     font-size: 2.2rem;
   }
 }
+
+
+/* ============================================================
+   ULTRA-LUXURY RESPONSIVE ADAPTATION (All Devices)
+   ============================================================ */
+
+/* --- 1. Large Tablets & Small Laptops (1024px) --- */
+@media screen and (max-width: 1024px) {
+    .about-section, .why-us {
+        padding: 80px 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .about-grid {
+        gap: 40px;
+    }
+}
+
+/* --- 2. Standard Tablets (768px) --- */
+@media screen and (max-width: 768px) {
+    /* Hero Scaling */
+    .about-hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    /* Stats / Counter Section */
+    .top-stats, .luxury-style {
+        flex-direction: column; /* Stack stats vertically */
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .stat-divider {
+        width: 60px; /* Turn vertical divider into horizontal */
+        height: 1px;
+        margin: 10px auto;
+        background: linear-gradient(to right, transparent, #d4af37, transparent);
+    }
+
+    .stat-box h2 {
+        font-size: 2.8rem;
+    }
+
+    /* About Grids (Who We Are / Mission) */
+    .about-grid {
+        grid-template-columns: 1fr !important; /* Stack image and text */
+        text-align: center;
+    }
+
+    .about-text h2::after {
+        margin: 14px auto 0; /* Center the gold line */
+    }
+
+    .reverse .about-grid {
+        direction: ltr; /* Reset right-to-left for mobile */
+    }
+
+    /* Review Section */
+    .review-content {
+        padding: 20px;
+    }
+
+    .review-content h2 {
+        font-size: 2rem;
+    }
+
+    .review-box {
+        padding: 30px 20px;
+    }
+
+    .quote {
+        display: none; /* Hide quotes on small screens to save space */
+    }
+}
+
+/* --- 3. Extra Small Mobile (480px) --- */
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Why Us Grid */
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-card {
+        padding: 30px 20px;
+    }
+
+    .why-us h2, .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Stat Box Scaling */
+    .stat-box h2 {
+        font-size: 2.4rem;
+    }
+
+    .stat-box p {
+        letter-spacing: 1px;
+        font-size: 0.7rem;
+    }
+
+    /* Image Scaling */
+    .about-grid img {
+        border-radius: 15px;
+    }
+
+    .review-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .review-arrows {
+        gap: 20px;
+    }
+}
+
+/* --- 4. Landscape Mobile Fix --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .about-hero {
+        height: 80vh;
+    }
+    
+    .top-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

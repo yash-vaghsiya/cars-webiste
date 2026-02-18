@@ -101,7 +101,7 @@ export class Collection implements OnInit {
   }
 
   contactWhatsApp(car: Car): void {
-    const adminPhone = '8849669921'; // TODO: Replace with your real WhatsApp number
+    const adminPhone = '+91 8849669921'; // TODO: Replace with your real WhatsApp number
     
     // Constructing the message template
     const message = `Hello! I'm interested in:

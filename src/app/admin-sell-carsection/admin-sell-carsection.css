@@ -157,3 +157,137 @@ button:hover {
 
 
 
+
+/* ============================================================
+   PERFECT RESPONSIVE ENGINE: ADMIN INVENTORY
+   ============================================================ */
+
+/* --- 1. TABLET & SMALL LAPTOPS (Neutralizing Margins) --- */
+@media screen and (max-width: 1024px) {
+    .admin-container {
+        margin-left: 0 !important; /* Force content to fill screen */
+        width: 100% !important;
+        padding: 90px 20px 20px !important;
+    }
+
+    .inventory-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Auto-Remove Names & Dots from Sidebar/Navbar */
+    .nav-item span, 
+    .sidebar-header h1, 
+    .subtitle, 
+    .nav-divider, 
+    .dot {
+        display: none !important;
+    }
+}
+
+/* --- 2. MOBILE TRANSFORMATION (Under 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Transform Sidebar into a Bottom Navbar */
+    .sidebar {
+        width: 100% !important;
+        height: 60px !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        flex-direction: row !important;
+        z-index: 2000;
+        background-color: #1e293b;
+    }
+
+    .sidebar-nav {
+        flex-direction: row !important;
+        display: flex !important;
+        width: 100%;
+        justify-content: space-around !important;
+        padding: 0;
+    }
+
+    .nav-item {
+        border: none !important;
+        padding: 0 !important;
+        justify-content: center;
+    }
+
+    .nav-item i {
+        font-size: 1.5rem !important;
+        margin: 0 !important;
+    }
+
+    /* Adjust Content for Bottom Nav Bar */
+    .admin-container {
+        padding-bottom: 80px !important; /* Prevents overlap with bottom bar */
+    }
+
+    .table-section {
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    /* Table Smooth Swiping */
+    .table-wrapper {
+        -webkit-overflow-scrolling: touch;
+        margin-right: -10px;
+    }
+
+    table {
+        min-width: 700px; /* Ensures data columns don't collapse */
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* --- 3. SMALL PHONES (Under 480px) --- */
+@media screen and (max-width: 480px) {
+    .inventory-header h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Action Buttons: Vertical Stack for Touch Accuracy */
+    .action-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .action-buttons button {
+        width: 100%; /* Full width for easier thumb-tapping */
+        height: 40px;
+    }
+
+    /* Compact text for small screens */
+    .car-info strong {
+        font-size: 13px;
+    }
+
+    .badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+
+    /* Password/Empty State Screen */
+    .password-screen {
+        padding: 40px 15px;
+    }
+
+    .lock-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- 4. LANDSCAPE FIX --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .admin-container {
+        padding-top: 20px !important;
+    }
+    .sidebar {
+        height: 50px !important;
+    }
+}

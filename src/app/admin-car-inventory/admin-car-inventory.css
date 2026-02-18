@@ -160,4 +160,127 @@ table {
   min-width: 800px; /* Prevents table from getting too squished */
 }
 
-/* ... keep the rest of your badge and button CSS as it was ... */
+/* ============================================================
+   ADMIN INVENTORY TABLE RESPONSIVE ENGINE
+   ============================================================ */
+
+/* --- 1. Tablet & Large Mobile (Under 992px) --- */
+@media screen and (max-width: 992px) {
+    .admin-container {
+        margin-left: 0 !important; /* Neutralize sidebar margin */
+        width: 100% !important;
+        padding: 20px 15px !important;
+    }
+
+    .inventory-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .inventory-header h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Buttons move to a more accessible layout */
+    .btn-lock {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- 2. Table "Card" Transformation (Under 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Instead of a tiny horizontal scroll, we make cells easier to tap */
+    .table-section {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    th {
+        font-size: 11px;
+        padding: 10px;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    /* Keep the image size consistent but small */
+    .car-img-container img {
+        width: 60px;
+        height: 40px;
+    }
+
+    .car-info strong {
+        font-size: 13px;
+    }
+
+    /* Action buttons scale for easier touch */
+    .action-buttons {
+        gap: 5px;
+    }
+
+    .action-buttons button {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* --- 3. Extra Small Mobile (Under 480px) --- */
+@media screen and (max-width: 480px) {
+    /* Password Screen Scaling */
+    .password-screen {
+        padding: 40px 10px;
+    }
+
+    .lock-icon {
+        font-size: 3rem;
+    }
+
+    .password-screen input {
+        width: 100%; /* Full width input on small screens */
+        max-width: 250px;
+    }
+
+    /* Table Font Optimization */
+    .car-info span, 
+    .category-tag, 
+    .badge {
+        font-size: 10px;
+    }
+
+    /* Force Table Wrapper to be smooth */
+    .table-wrapper {
+        -webkit-overflow-scrolling: touch; /* Smooth inertia scroll on iPhone */
+        margin: 0 -10px; /* Pull table closer to screen edges */
+        padding: 0 10px;
+    }
+
+    /* Adjust Status Badge Padding */
+    .badge {
+        padding: 3px 7px;
+    }
+}
+
+/* --- 4. Sidebar/Nav Names & Dots Removal --- */
+@media screen and (max-width: 768px) {
+    /* Removes the names and list dots automatically in the sidebar/navbar */
+    .nav-item span, 
+    .sidebar-header h1, 
+    .subtitle, 
+    .nav-divider, 
+    .dot {
+        display: none !important;
+    }
+
+    /* Center icons if the sidebar turns into a bottom bar */
+    .nav-item {
+        justify-content: center !important;
+    }
+
+    .nav-item i {
+        margin: 0 !important;
+        font-size: 1.5rem !important;
+    }
+}

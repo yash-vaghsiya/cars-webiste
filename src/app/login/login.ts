@@ -213,7 +213,115 @@
 
 // ===============================================================================================================================
 
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
+// import { Router } from '@angular/router';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { AuthService } from '../auth.service.ts-guard';
+
+// @Component({
+//   selector: 'app-root',
+//   standalone: true,
+//   imports: [CommonModule, FormsModule, HttpClientModule],
+//   templateUrl: './login.html',
+//   styleUrls: ['./login.css']
+// })
+// export class Login implements OnInit {
+//   currentView: string = 'login';
+//   errorMessage: string = '';
+//   private apiUrl = 'http://localhost:3000/users'; 
+
+//   email: string = '';
+//   password: string = '';
+//   fullName: string = '';
+//   phoneNumber: string = '';
+//   signupEmail: string = '';
+//   signupPassword: string = '';
+//   resetEmail: string = '';
+
+//   constructor(
+//     private authService: AuthService, 
+//     private router: Router,
+//     private http: HttpClient
+//   ) { }
+
+//   ngOnInit() {
+//     if (localStorage.getItem('isLoggedIn') === 'true') {
+//       this.router.navigate(['/Home']);
+//     }
+//   }
+
+//   onLogin() {
+//     if (!this.email || !this.password) {
+//       this.errorMessage = 'Please enter both email and password';
+//       return;
+//     }
+
+//     this.http.get<any[]>(`${this.apiUrl}?email=${this.email}`).subscribe({
+//       next: (users) => {
+//         const user = users[0];
+
+//         if (user && user.password === this.password) {
+//           // Store authentication state
+//           localStorage.setItem('isLoggedIn', 'true');
+//           localStorage.setItem('email', user.email); // Store email to check for admin status
+          
+//           this.authService.login(this.email, this.password);
+//           this.router.navigate(['/Home']);
+//         } else {
+//           this.errorMessage = 'Invalid email or password.';
+//         }
+//       },
+//       error: () => {
+//         this.errorMessage = 'Server error. Is your json-server running?';
+//       }
+//     });
+//   }
+
+//   onSignup() {
+//     if (!this.fullName || !this.signupEmail || !this.signupPassword) {
+//       this.errorMessage = 'Please fill all fields';
+//       return;
+//     }
+
+//     // Hardcoded check: Only allow admin creation if credentials match exactly
+//     if (this.signupEmail === 'admin@gmail.com' && this.signupPassword !== 'admin123') {
+//       this.errorMessage = 'Invalid password for the Admin email account.';
+//       return;
+//     }
+
+//     const newUser = {
+//       name: this.fullName,
+//       email: this.signupEmail,
+//       phone: this.phoneNumber,
+//       password: this.signupPassword
+//     };
+
+//     this.http.post(this.apiUrl, newUser).subscribe({
+//       next: () => {
+//         alert('Account created successfully!');
+//         this.switchView('login');
+//       },
+//       error: () => this.errorMessage = 'Signup failed.'
+//     });
+//   }
+
+//   switchView(view: string) {
+//     this.currentView = view;
+//     this.errorMessage = '';
+//   }
+
+//   onPasswordReset() {
+//     if (this.resetEmail) {
+//       alert('Reset link sent!');
+//       this.switchView('login');
+//     }
+//   }
+// }
+
+// ===============================================================================================================================
+import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -232,6 +340,7 @@ export class Login implements OnInit {
   errorMessage: string = '';
   private apiUrl = 'http://localhost:3000/users'; 
 
+  // Form Fields
   email: string = '';
   password: string = '';
   fullName: string = '';
@@ -243,14 +352,95 @@ export class Login implements OnInit {
   constructor(
     private authService: AuthService, 
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private ngZone: NgZone 
   ) { }
 
   ngOnInit() {
+    // Redirect if already logged in
     if (localStorage.getItem('isLoggedIn') === 'true') {
       this.router.navigate(['/Home']);
     }
+
+    // Initialize Google Auth after component loads
+    setTimeout(() => {
+      this.initGoogleAuth();
+    }, 500);
   }
+
+  // --- 1. GOOGLE AUTHENTICATION METHODS ---
+
+  initGoogleAuth() {
+    // @ts-ignore
+    if (typeof google !== 'undefined') {
+      // @ts-ignore
+      google.accounts.id.initialize({
+        client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com', // Replace with your actual ID
+        callback: this.handleGoogleResponse.bind(this),
+        auto_select: false,
+        cancel_on_tap_outside: true
+      });
+    }
+  }
+
+  loginWithGoogle() {
+    // @ts-ignore
+    if (typeof google !== 'undefined') {
+      // @ts-ignore
+      google.accounts.id.prompt(); 
+    } else {
+      this.errorMessage = "Google login is currently unavailable.";
+    }
+  }
+
+  handleGoogleResponse(response: any) {
+    try {
+      // Manual JWT Decode
+      const base64Url = response.credential.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(window.atob(base64).split('').map((c) => {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+
+      const payload = JSON.parse(jsonPayload);
+      const gEmail = payload.email;
+      const gName = payload.name;
+
+      this.http.get<any[]>(`${this.apiUrl}?email=${gEmail}`).subscribe({
+        next: (users) => {
+          if (users.length > 0) {
+            this.completeExternalLogin(users[0]);
+          } else {
+            // Register Google user if they don't exist
+            const newUser = {
+              name: gName,
+              email: gEmail,
+              phone: '',
+              password: 'google-auth-user-' + Math.random().toString(36).slice(-8),
+              role: 'user'
+            };
+            this.http.post(this.apiUrl, newUser).subscribe({
+              next: (createdUser) => this.completeExternalLogin(createdUser),
+              error: () => this.errorMessage = 'Failed to create Google account record.'
+            });
+          }
+        }
+      });
+    } catch (error) {
+      this.errorMessage = 'Google login failed.';
+    }
+  }
+
+  private completeExternalLogin(user: any) {
+    this.ngZone.run(() => {
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('email', user.email);
+      this.authService.login(user.email, user.password);
+      this.router.navigate(['/Home']);
+    });
+  }
+
+  // --- 2. STANDARD FORM METHODS ---
 
   onLogin() {
     if (!this.email || !this.password) {
@@ -261,21 +451,16 @@ export class Login implements OnInit {
     this.http.get<any[]>(`${this.apiUrl}?email=${this.email}`).subscribe({
       next: (users) => {
         const user = users[0];
-
         if (user && user.password === this.password) {
-          // Store authentication state
           localStorage.setItem('isLoggedIn', 'true');
-          localStorage.setItem('email', user.email); // Store email to check for admin status
-          
+          localStorage.setItem('email', user.email);
           this.authService.login(this.email, this.password);
           this.router.navigate(['/Home']);
         } else {
           this.errorMessage = 'Invalid email or password.';
         }
       },
-      error: () => {
-        this.errorMessage = 'Server error. Is your json-server running?';
-      }
+      error: () => this.errorMessage = 'Server error. Is json-server running?'
     });
   }
 
@@ -285,17 +470,12 @@ export class Login implements OnInit {
       return;
     }
 
-    // Hardcoded check: Only allow admin creation if credentials match exactly
-    if (this.signupEmail === 'admin@gmail.com' && this.signupPassword !== 'admin123') {
-      this.errorMessage = 'Invalid password for the Admin email account.';
-      return;
-    }
-
     const newUser = {
       name: this.fullName,
       email: this.signupEmail,
       phone: this.phoneNumber,
-      password: this.signupPassword
+      password: this.signupPassword,
+      role: 'user'
     };
 
     this.http.post(this.apiUrl, newUser).subscribe({
@@ -307,15 +487,19 @@ export class Login implements OnInit {
     });
   }
 
+  onPasswordReset() {
+    if (this.resetEmail) {
+      alert('Reset link sent to ' + this.resetEmail);
+      this.switchView('login');
+    } else {
+      this.errorMessage = 'Please enter your email.';
+    }
+  }
+
+  // --- 3. HELPER METHODS ---
+
   switchView(view: string) {
     this.currentView = view;
     this.errorMessage = '';
-  }
-
-  onPasswordReset() {
-    if (this.resetEmail) {
-      alert('Reset link sent!');
-      this.switchView('login');
-    }
   }
 }

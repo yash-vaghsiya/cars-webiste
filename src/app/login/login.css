@@ -534,3 +534,89 @@ height: 35px;
         padding-top: 80px;
     }
 }
+
+
+
+
+/* --- UNIVERSAL RESPONSIVE OVERRIDES --- */
+
+/* 1. Container & Layout Reset */
+.main-container {
+    width: 100% !important; /* Fixes the 99vw horizontal scroll */
+    flex-direction: row;
+}
+
+/* 2. Authentication Card Fixes */
+.auth-card {
+    width: 100% !important;
+    max-width: 420px !important; /* Prevents overflow */
+    margin-right: 0 !important;   /* Removes the forced 150px gap */
+}
+
+/* 3. TABLETS & SMALL LAPTOPS (Breakdown point) */
+@media screen and (max-width: 1100px) {
+    .image-section {
+        padding: 40px;
+    }
+    .hero-title {
+        font-size: 42px;
+    }
+    .form-section {
+        min-width: 400px;
+    }
+}
+
+/* 4. MOBILE VIEW (Vertical Stack) */
+@media screen and (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        display: none; /* Hide image on mobile for better UX */
+    }
+
+    .form-section {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 20px;
+    }
+
+    .auth-card {
+        max-width: 100%;
+        border: none;
+        background: transparent;
+    }
+}
+
+/* 5. SMALL PHONES */
+@media screen and (max-width: 480px) {
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .social-login {
+        flex-direction: column;
+    }
+
+    .social-btn {
+        width: 100%;
+    }
+
+    .brand-info h1 {
+        font-size: 20px;
+    }
+}
+
+/* 6. LANDSCAPE / SHORT SCREENS */
+@media screen and (max-height: 700px) and (min-width: 901px) {
+    .form-section {
+        justify-content: flex-start;
+        overflow-y: auto;
+        padding-top: 80px;
+    }
+}

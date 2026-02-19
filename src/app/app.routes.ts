@@ -48,7 +48,7 @@ export class AppRoutingModule {}
 
 // import { Login } from './login/login'
 // import { RouterModule, Routes } from '@angular/router';
-// import { Home } from './home/home';
+// import { Home } from './home/home';6
 // import { Collection } from './collection/collection';
 // import { SellCar } from './sell-car/sell-car';
 // import { AboutUs } from './about-us/about-us';

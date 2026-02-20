@@ -63,11 +63,12 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Carsdata, Car } from '../service/carsdata';
 import { Footer } from "../footer/footer";
+import { CARCHATASSISTANT } from "../car-chat-assistant/car-chat-assistant";
 
 @Component({
   selector: 'app-Collection',
   standalone: true,
-  imports: [CommonModule, Footer],
+  imports: [CommonModule, Footer, CARCHATASSISTANT],
   templateUrl: './collection.html',
   styleUrls: ['./collection.css'],
 })

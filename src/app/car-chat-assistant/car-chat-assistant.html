@@ -1,0 +1,36 @@
+<!-- Floating Button -->
+ <button class="chat-fab" (click)="toggle()">
+   <i class="fas fa-headset" *ngIf="!isOpen"></i>
+  <span *ngIf="isOpen">✖</span>
+</button>
+
+<!-- Chat Window -->
+<div class="chat-window" [class.open]="isOpen">
+  <div class="chat-header">
+    <div class="title">
+      <div class="dot"></div>
+      <div>
+        <h3>Car Support</h3>
+        <p>Instant help • Suggestions • Car details</p>
+      </div>
+    </div>
+    <button class="min-btn" (click)="toggle()">—</button>
+  </div>
+
+  <div class="chat-body" #scrollBox>
+    <div class="msg" *ngFor="let m of messages" [class.user]="m.role === 'user'" [class.bot]="m.role === 'bot'">
+      <div class="bubble">{{ m.text }}</div>
+    </div>
+
+    <div class="typing" *ngIf="isTyping">
+      <span></span><span></span><span></span>
+      <p>Typing…</p>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input [(ngModel)]="input" placeholder="Ask about a car, price, EMI, mileage..." (keydown)="onEnter($event)" />
+    <button (click)="send()">Send</button>
+  </div>
+</div>
+

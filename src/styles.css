@@ -8,3 +8,38 @@ body {
     padding: 0;
     width: 100%;
 }
+
+
+.support-button {
+  /* Positioning */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  /* Shape and Size */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Makes it perfectly round */
+  
+  /* Styling */
+  background-color: #007bff; /* Primary blue */
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
+  /* Center the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  
+  /* Smooth hover effect */
+  transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.support-button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+}
